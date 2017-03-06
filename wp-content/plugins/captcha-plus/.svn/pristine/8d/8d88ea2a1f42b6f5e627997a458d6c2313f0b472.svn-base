@@ -1,0 +1,1243 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: captcha-plus\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-06-06 17:07+0300\n"
+"PO-Revision-Date: 2016-06-06 17:07+0300\n"
+"Last-Translator: BestWebSoft team <wp@bestwebsoft.com>\n"
+"Language-Team: Morteza Gholami <Morteza.Gholami@Yahoo.Com>\n"
+"Language: fa_IR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Generator: Poedit 1.5.4\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: captcha-plus.php:17 captcha-plus.php:455
+#, fuzzy
+msgid "Captcha Plus Settings"
+msgstr "تنظیمات معادله‌ی امنیتی حرفه‌ای"
+
+#: captcha-plus.php:169
+msgid "Please enter a CAPTCHA value."
+msgstr "لطفا یک مقدار کپچا وارد کنید."
+
+#: captcha-plus.php:170
+msgid "Please enter a valid CAPTCHA value."
+msgstr "لطفا یک مقدار کپچای معتبر وارد کنید."
+
+#: captcha-plus.php:171
+#, fuzzy
+msgid "Time limit is exhausted. Please enter CAPTCHA value again."
+msgstr "لطفاً معادله ی امنیتی را پُر کنید."
+
+#: captcha-plus.php:177
+msgid "You are in the white list"
+msgstr ""
+
+#: captcha-plus.php:188
+#, fuzzy
+msgid "Time limit is exhausted. Please reload CAPTCHA."
+msgstr "لطفاً معادله ی امنیتی را پُر کنید."
+
+#: captcha-plus.php:305
+msgid "Login form"
+msgstr "فرم ورود"
+
+#: captcha-plus.php:306
+msgid "Registration form"
+msgstr "فرم ثبت‌نام"
+
+#: captcha-plus.php:307
+msgid "Reset Password form"
+msgstr "فرم بازنشانی گذرواژه"
+
+#: captcha-plus.php:308
+msgid "Comments form"
+msgstr "فرم دیدگاه‌ها"
+
+#: captcha-plus.php:311
+#, fuzzy
+msgid "in Comments form for registered users"
+msgstr "کپچا را در فرم دیدگاه‌ها برای کاربران عضو نمایش نده"
+
+#: captcha-plus.php:316
+msgid "Plus (&#43;)"
+msgstr "جمع (&#43;)"
+
+#: captcha-plus.php:316
+msgid "Plus"
+msgstr "جمع"
+
+#: captcha-plus.php:317
+msgid "Minus (&minus;)"
+msgstr "تفریق (&minus;)"
+
+#: captcha-plus.php:317
+msgid "Minus"
+msgstr "تفریق"
+
+#: captcha-plus.php:318
+msgid "Multiplication (&times;)"
+msgstr "ضرب (&times;)"
+
+#: captcha-plus.php:318
+msgid "Multiply"
+msgstr "ضرب (&times;)"
+
+#: captcha-plus.php:323
+msgid "Numbers"
+msgstr "ارقام"
+
+#: captcha-plus.php:324
+msgid "Words"
+msgstr "کلمات"
+
+#: captcha-plus.php:325
+msgid "Images"
+msgstr ""
+
+#: captcha-plus.php:401
+msgid ""
+"Please select one item in the block Arithmetic and Complexity for CAPTCHA"
+msgstr ""
+"لطفا یکی از گزینه‌های موجود در بلوک‌های عملیات ریاضی و میزان دشواری را برای "
+"کپچا انتخاب کنید"
+
+#: captcha-plus.php:407
+#, fuzzy
+msgid "Please select one item in the block Enable image packages"
+msgstr ""
+"لطفا یکی از گزینه‌های موجود در بلوک‌های عملیات ریاضی و میزان دشواری را برای "
+"کپچا انتخاب کنید"
+
+#: captcha-plus.php:439
+msgid "Settings saved."
+msgstr "تنظیمات ذخیره شد."
+
+#: captcha-plus.php:451
+msgid "All plugin settings were restored."
+msgstr ""
+
+#: captcha-plus.php:457
+msgid "How to Use Step-by-step Instruction"
+msgstr ""
+
+#: captcha-plus.php:460
+msgid "Basic"
+msgstr ""
+
+#: captcha-plus.php:461
+msgid "Advanced"
+msgstr ""
+
+#: captcha-plus.php:462
+msgid "Whitelist"
+msgstr ""
+
+#: captcha-plus.php:463
+msgid "Custom code"
+msgstr ""
+
+#: captcha-plus.php:466
+msgid "Notice:"
+msgstr "توجه:"
+
+#: captcha-plus.php:466
+msgid ""
+"Option to display captcha for Contact Form 7 is enabled. For correct work, "
+"please, dont forget to add the BWS CAPTCHA block to Contact Form 7 to the "
+"needed form (see"
+msgstr ""
+"گزینه‌ای برای نمایش کپچا برای Contact Form 7 فعال شده است. برای درست کار "
+"کردن، لطفا فراموش نکنید که بلوک کپچای BWS را در Contact Form 7 در فرم "
+"موردنیاز قرار دهید (ببینید"
+
+#: captcha-plus.php:479 captcha-plus.php:482
+#, fuzzy
+msgid "Enable CAPTCHA for"
+msgstr "فعال‌سازی کپچا برای:"
+
+#: captcha-plus.php:483
+msgid "WordPress default"
+msgstr ""
+
+#: captcha-plus.php:489
+msgid "This option is available only for main blog"
+msgstr ""
+
+#: captcha-plus.php:506
+#, fuzzy
+msgid "Plugins"
+msgstr "صفحه‌ی افزونه‌ها"
+
+#: captcha-plus.php:513 captcha-plus.php:519 captcha-plus.php:538
+#: captcha-plus.php:547 captcha-plus.php:553
+msgid "You should"
+msgstr "شما می‌بایست"
+
+#: captcha-plus.php:513 captcha-plus.php:547 includes/whitelist.php:442
+msgid "activate"
+msgstr "فعال‌سازی"
+
+#: captcha-plus.php:513 captcha-plus.php:547
+msgid "for network"
+msgstr "برای شبکه"
+
+#: captcha-plus.php:513 captcha-plus.php:521 captcha-plus.php:547
+#: captcha-plus.php:553
+msgid "to use this functionality"
+msgstr "برای استفاده از این قابلیت"
+
+#: captcha-plus.php:520 captcha-plus.php:553
+msgid "download"
+msgstr "دانلود"
+
+#: captcha-plus.php:538
+msgid "update"
+msgstr "بروزرسانی"
+
+#: captcha-plus.php:538
+#, fuzzy
+msgid "at least up to v3.4 to use this functionality"
+msgstr "برای استفاده از این قابلیت"
+
+#: captcha-plus.php:564
+#, fuzzy
+msgid "If you would like to add Captcha to a custom form, please see"
+msgstr "اگر مایلید که به یک فرم سفارشی کپچا اضافه کنید"
+
+#: captcha-plus.php:569
+#, fuzzy
+msgid "Hide CAPTCHA"
+msgstr "معادله‌ی امنیتی BWS"
+
+#: captcha-plus.php:576
+msgid "Title"
+msgstr ""
+
+#: captcha-plus.php:580
+msgid "Required symbol"
+msgstr "نماد الزامی بودن"
+
+#: captcha-plus.php:586
+msgid "Show \"Reload\" button"
+msgstr ""
+
+#: captcha-plus.php:592 captcha-plus.php:595
+#, fuzzy
+msgid "Arithmetic actions"
+msgstr "عمل‌های ریاضی برای کپچا"
+
+#: captcha-plus.php:607 captcha-plus.php:610
+msgid "Complexity"
+msgstr ""
+
+#: captcha-plus.php:632
+msgid "Enable image packages"
+msgstr ""
+
+#: captcha-plus.php:649
+msgid "Enlarge images on mouseover"
+msgstr ""
+
+#: captcha-plus.php:656
+msgid "Enable time limit"
+msgstr ""
+
+#: captcha-plus.php:662
+msgid "Set time limit"
+msgstr ""
+
+#: captcha-plus.php:665
+msgid "seconds"
+msgstr ""
+
+#: captcha-plus.php:671
+msgid "Notification messages"
+msgstr ""
+
+#: captcha-plus.php:674 captcha-plus.php:965 captcha-plus.php:971
+#, fuzzy
+msgid "Error"
+msgstr "خطا:"
+
+#: captcha-plus.php:676
+msgid ""
+"This messages will be displayed, if the CAPTCHA answer has not passed the "
+"verification"
+msgstr ""
+
+#: captcha-plus.php:679
+#, fuzzy
+msgid "If the CAPTCHA field is empty"
+msgstr "اگر فیلد کپچا خالی باشد"
+
+#: captcha-plus.php:680
+#, fuzzy
+msgid "If the CAPTCHA is incorrect"
+msgstr "اگر کپچا غلط باشد"
+
+#: captcha-plus.php:681
+msgid "If the time limit is exhausted"
+msgstr ""
+
+#: captcha-plus.php:683
+msgid "Info"
+msgstr ""
+
+#: captcha-plus.php:685
+msgid "This messages will be displayed inside of the CAPTCHA"
+msgstr ""
+
+#: captcha-plus.php:688
+msgid ""
+"If the user IP is added to the whitelist (this message will be displayed "
+"instead of the CAPTCHA)"
+msgstr ""
+
+#: captcha-plus.php:689
+#, fuzzy
+msgid ""
+"If the time limit is exhausted (this message will be displayed above the "
+"CAPTCHA)"
+msgstr "لطفاً معادله ی امنیتی را پُر کنید."
+
+#: captcha-plus.php:696
+msgid "Save Changes"
+msgstr "ذخیره‌ی تغییرات"
+
+#: captcha-plus.php:819 captcha-plus.php:825 captcha-plus.php:840
+#: captcha-plus.php:842 captcha-plus.php:851 captcha-plus.php:1030
+#: captcha-plus.php:1038 captcha-plus.php:1084 captcha-plus.php:1088
+#: captcha-plus.php:1097 captcha-plus.php:1120 captcha-plus.php:1130
+#: captcha-plus.php:1148 captcha-plus.php:1151 captcha-plus.php:1159
+msgid "ERROR"
+msgstr "خطا"
+
+#: captcha-plus.php:965 captcha-plus.php:971
+msgid "Click the BACK button on your browser, and try again."
+msgstr "لطفا دکمه‌ی بازگشت مرورگر خود را بفشارید و مجددا تلاش کنید."
+
+#: captcha-plus.php:1519
+msgid "zero"
+msgstr "صفر"
+
+#: captcha-plus.php:1520 captcha-plus.php:1859
+msgid "one"
+msgstr "یک"
+
+#: captcha-plus.php:1521
+msgid "two"
+msgstr "دو"
+
+#: captcha-plus.php:1522
+msgid "three"
+msgstr "سه"
+
+#: captcha-plus.php:1523
+msgid "four"
+msgstr "چهار"
+
+#: captcha-plus.php:1524
+msgid "five"
+msgstr "پنج"
+
+#: captcha-plus.php:1525 captcha-plus.php:1859
+msgid "six"
+msgstr "شش"
+
+#: captcha-plus.php:1526 captcha-plus.php:1847 captcha-plus.php:1853
+msgid "seven"
+msgstr "هفت"
+
+#: captcha-plus.php:1527 captcha-plus.php:1850
+msgid "eight"
+msgstr "هشت"
+
+#: captcha-plus.php:1528
+msgid "nine"
+msgstr "نُه"
+
+#: captcha-plus.php:1530
+msgid "ten"
+msgstr "ده"
+
+#: captcha-plus.php:1531
+msgid "eleven"
+msgstr "یازده"
+
+#: captcha-plus.php:1532
+msgid "twelve"
+msgstr "دوازده"
+
+#: captcha-plus.php:1533
+msgid "thirteen"
+msgstr "سیزده"
+
+#: captcha-plus.php:1534
+msgid "fourteen"
+msgstr "چهارده"
+
+#: captcha-plus.php:1535
+msgid "fifteen"
+msgstr "پانزده"
+
+#: captcha-plus.php:1536
+msgid "sixteen"
+msgstr "شانزده"
+
+#: captcha-plus.php:1537
+msgid "seventeen"
+msgstr "هفده"
+
+#: captcha-plus.php:1538
+msgid "eighteen"
+msgstr "هجده"
+
+#: captcha-plus.php:1539
+msgid "nineteen"
+msgstr "نوزده"
+
+#: captcha-plus.php:1541
+msgid "twenty"
+msgstr "بیست"
+
+#: captcha-plus.php:1542
+#, fuzzy
+msgid "twenty one"
+msgstr "بیست"
+
+#: captcha-plus.php:1543
+#, fuzzy
+msgid "twenty two"
+msgstr "بیست"
+
+#: captcha-plus.php:1544
+#, fuzzy
+msgid "twenty three"
+msgstr "بیست"
+
+#: captcha-plus.php:1545
+#, fuzzy
+msgid "twenty four"
+msgstr "بیست"
+
+#: captcha-plus.php:1546
+#, fuzzy
+msgid "twenty five"
+msgstr "بیست"
+
+#: captcha-plus.php:1547
+#, fuzzy
+msgid "twenty six"
+msgstr "بیست"
+
+#: captcha-plus.php:1548
+#, fuzzy
+msgid "twenty seven"
+msgstr "بیست"
+
+#: captcha-plus.php:1549
+#, fuzzy
+msgid "twenty eight"
+msgstr "بیست"
+
+#: captcha-plus.php:1550
+#, fuzzy
+msgid "twenty nine"
+msgstr "بیست"
+
+#: captcha-plus.php:1552
+msgid "thirty"
+msgstr "سی"
+
+#: captcha-plus.php:1553
+#, fuzzy
+msgid "thirty one"
+msgstr "سی"
+
+#: captcha-plus.php:1554
+#, fuzzy
+msgid "thirty two"
+msgstr "سی"
+
+#: captcha-plus.php:1555
+#, fuzzy
+msgid "thirty three"
+msgstr "سیزده"
+
+#: captcha-plus.php:1556
+#, fuzzy
+msgid "thirty four"
+msgstr "سی"
+
+#: captcha-plus.php:1557
+#, fuzzy
+msgid "thirty five"
+msgstr "سی"
+
+#: captcha-plus.php:1558
+#, fuzzy
+msgid "thirty six"
+msgstr "سی"
+
+#: captcha-plus.php:1559
+#, fuzzy
+msgid "thirty seven"
+msgstr "سیزده"
+
+#: captcha-plus.php:1560
+#, fuzzy
+msgid "thirty eight"
+msgstr "سی"
+
+#: captcha-plus.php:1561
+#, fuzzy
+msgid "thirty nine"
+msgstr "سی"
+
+#: captcha-plus.php:1563
+msgid "forty"
+msgstr "چهل"
+
+#: captcha-plus.php:1564
+#, fuzzy
+msgid "forty one"
+msgstr "چهل"
+
+#: captcha-plus.php:1565
+#, fuzzy
+msgid "forty two"
+msgstr "چهل"
+
+#: captcha-plus.php:1566
+#, fuzzy
+msgid "forty three"
+msgstr "سه"
+
+#: captcha-plus.php:1567
+#, fuzzy
+msgid "forty four"
+msgstr "چهل"
+
+#: captcha-plus.php:1568
+#, fuzzy
+msgid "forty five"
+msgstr "چهل"
+
+#: captcha-plus.php:1569
+#, fuzzy
+msgid "forty six"
+msgstr "چهل"
+
+#: captcha-plus.php:1570
+#, fuzzy
+msgid "forty seven"
+msgstr "هفت"
+
+#: captcha-plus.php:1571
+#, fuzzy
+msgid "forty eight"
+msgstr "هشت"
+
+#: captcha-plus.php:1572
+#, fuzzy
+msgid "forty nine"
+msgstr "چهل"
+
+#: captcha-plus.php:1574
+msgid "fifty"
+msgstr "پنجاه"
+
+#: captcha-plus.php:1575
+#, fuzzy
+msgid "fifty one"
+msgstr "پنجاه"
+
+#: captcha-plus.php:1576
+#, fuzzy
+msgid "fifty two"
+msgstr "پنجاه"
+
+#: captcha-plus.php:1577
+#, fuzzy
+msgid "fifty three"
+msgstr "پانزده"
+
+#: captcha-plus.php:1578
+#, fuzzy
+msgid "fifty four"
+msgstr "پنجاه"
+
+#: captcha-plus.php:1579
+#, fuzzy
+msgid "fifty five"
+msgstr "پنجاه"
+
+#: captcha-plus.php:1580
+#, fuzzy
+msgid "fifty six"
+msgstr "پنجاه"
+
+#: captcha-plus.php:1581
+#, fuzzy
+msgid "fifty seven"
+msgstr "پانزده"
+
+#: captcha-plus.php:1582
+#, fuzzy
+msgid "fifty eight"
+msgstr "هشت"
+
+#: captcha-plus.php:1583
+#, fuzzy
+msgid "fifty nine"
+msgstr "پنجاه"
+
+#: captcha-plus.php:1585
+msgid "sixty"
+msgstr "شصت"
+
+#: captcha-plus.php:1586
+#, fuzzy
+msgid "sixty one"
+msgstr "شصت"
+
+#: captcha-plus.php:1587
+#, fuzzy
+msgid "sixty two"
+msgstr "شصت"
+
+#: captcha-plus.php:1588
+#, fuzzy
+msgid "sixty three"
+msgstr "شانزده"
+
+#: captcha-plus.php:1589
+#, fuzzy
+msgid "sixty four"
+msgstr "شصت"
+
+#: captcha-plus.php:1590
+#, fuzzy
+msgid "sixty five"
+msgstr "شصت"
+
+#: captcha-plus.php:1591
+#, fuzzy
+msgid "sixty six"
+msgstr "شصت"
+
+#: captcha-plus.php:1592
+#, fuzzy
+msgid "sixty seven"
+msgstr "شانزده"
+
+#: captcha-plus.php:1593
+#, fuzzy
+msgid "sixty eight"
+msgstr "هشت"
+
+#: captcha-plus.php:1594
+#, fuzzy
+msgid "sixty nine"
+msgstr "شصت"
+
+#: captcha-plus.php:1596
+msgid "seventy"
+msgstr "هفتاد"
+
+#: captcha-plus.php:1597
+#, fuzzy
+msgid "seventy one"
+msgstr "هفتاد"
+
+#: captcha-plus.php:1598
+#, fuzzy
+msgid "seventy two"
+msgstr "هفتاد"
+
+#: captcha-plus.php:1599
+#, fuzzy
+msgid "seventy three"
+msgstr "هفده"
+
+#: captcha-plus.php:1600
+#, fuzzy
+msgid "seventy four"
+msgstr "هفتاد"
+
+#: captcha-plus.php:1601
+#, fuzzy
+msgid "seventy five"
+msgstr "هفتاد"
+
+#: captcha-plus.php:1602
+#, fuzzy
+msgid "seventy six"
+msgstr "هفتاد"
+
+#: captcha-plus.php:1603
+#, fuzzy
+msgid "seventy seven"
+msgstr "هفده"
+
+#: captcha-plus.php:1604
+#, fuzzy
+msgid "seventy eight"
+msgstr "هفتاد"
+
+#: captcha-plus.php:1605
+#, fuzzy
+msgid "seventy nine"
+msgstr "هفتاد"
+
+#: captcha-plus.php:1607
+msgid "eighty"
+msgstr "هشتاد"
+
+#: captcha-plus.php:1608
+#, fuzzy
+msgid "eighty one"
+msgstr "هشتاد"
+
+#: captcha-plus.php:1609
+#, fuzzy
+msgid "eighty two"
+msgstr "هشتاد"
+
+#: captcha-plus.php:1610
+#, fuzzy
+msgid "eighty three"
+msgstr "هجده"
+
+#: captcha-plus.php:1611
+#, fuzzy
+msgid "eighty four"
+msgstr "هشتاد"
+
+#: captcha-plus.php:1612
+#, fuzzy
+msgid "eighty five"
+msgstr "هشتاد"
+
+#: captcha-plus.php:1613
+#, fuzzy
+msgid "eighty six"
+msgstr "هشتاد"
+
+#: captcha-plus.php:1614
+#, fuzzy
+msgid "eighty seven"
+msgstr "هجده"
+
+#: captcha-plus.php:1615
+#, fuzzy
+msgid "eighty eight"
+msgstr "هشتاد"
+
+#: captcha-plus.php:1616
+#, fuzzy
+msgid "eighty nine"
+msgstr "هشتاد"
+
+#: captcha-plus.php:1618
+msgid "ninety"
+msgstr "نود"
+
+#: captcha-plus.php:1619
+#, fuzzy
+msgid "ninety one"
+msgstr "نود"
+
+#: captcha-plus.php:1620
+#, fuzzy
+msgid "ninety two"
+msgstr "نود"
+
+#: captcha-plus.php:1621
+#, fuzzy
+msgid "ninety three"
+msgstr "نوزده"
+
+#: captcha-plus.php:1622
+#, fuzzy
+msgid "ninety four"
+msgstr "نود"
+
+#: captcha-plus.php:1623
+#, fuzzy
+msgid "ninety five"
+msgstr "نود"
+
+#: captcha-plus.php:1624
+#, fuzzy
+msgid "ninety six"
+msgstr "نود"
+
+#: captcha-plus.php:1625
+#, fuzzy
+msgid "ninety seven"
+msgstr "نوزده"
+
+#: captcha-plus.php:1626
+#, fuzzy
+msgid "ninety eight"
+msgstr "نود"
+
+#: captcha-plus.php:1627
+#, fuzzy
+msgid "ninety nine"
+msgstr "نود"
+
+#: captcha-plus.php:1692
+msgid "Encryption password is not set"
+msgstr "رمز عبوری برای رمزگذاری تعیین نشده"
+
+#: captcha-plus.php:1712
+msgid "Decryption password is not set"
+msgstr "رمز عبوری برای رمزگشایی تعیین نشده"
+
+#: captcha-plus.php:1948 captcha-plus.php:1961
+msgid "Settings"
+msgstr "تنظیمات"
+
+#: captcha-plus.php:1962
+msgid "FAQ"
+msgstr "پرسش‌های متداول"
+
+#: captcha-plus.php:1963
+msgid "Support"
+msgstr "پشتیبانی"
+
+#: includes/whitelist.php:75
+msgid "For IP addresses from the whitelist CAPTCHA will not be displayed"
+msgstr ""
+
+#: includes/whitelist.php:87
+#, php-format
+msgid ""
+"With this option, CAPTCHA will not be displayed for IP-addresses from the "
+"whitelist of %s"
+msgstr ""
+
+#: includes/whitelist.php:98 includes/whitelist.php:134
+msgid "Add IP to whitelist"
+msgstr ""
+
+#: includes/whitelist.php:101
+msgid "Load IP to whitelist"
+msgstr ""
+
+#: includes/whitelist.php:104
+#, php-format
+msgid ""
+"By click on this button, all IP-addresses from the whitelist of %s will be "
+"loaded to the whitelist of %s"
+msgstr ""
+
+#: includes/whitelist.php:113
+#, fuzzy
+msgid "Save changes"
+msgstr "ذخیره‌ی تغییرات"
+
+#: includes/whitelist.php:130
+msgid "My IP"
+msgstr ""
+
+#: includes/whitelist.php:138
+msgid "Allowed formats:"
+msgstr ""
+
+#: includes/whitelist.php:139
+msgid "Allowed diapason:"
+msgstr ""
+
+#: includes/whitelist.php:144
+msgid "Search IP"
+msgstr ""
+
+#: includes/whitelist.php:199
+msgid "Nothing found"
+msgstr ""
+
+#: includes/whitelist.php:199
+msgid "No IP in whitelist"
+msgstr ""
+
+#: includes/whitelist.php:206
+msgid "IP address"
+msgstr ""
+
+#: includes/whitelist.php:207
+msgid "Date added"
+msgstr ""
+
+#: includes/whitelist.php:261 includes/whitelist.php:270
+msgid "Remove from whitelist"
+msgstr ""
+
+#: includes/whitelist.php:350
+msgid "IP added to the whitelist successfully"
+msgstr ""
+
+#: includes/whitelist.php:352 includes/whitelist.php:374
+#: includes/whitelist.php:386
+msgid "Some errors occured"
+msgstr ""
+
+#: includes/whitelist.php:354
+msgid "IP is already in the whitelist"
+msgstr ""
+
+#: includes/whitelist.php:357
+msgid "Invalid IP. See allowed formats"
+msgstr ""
+
+#: includes/whitelist.php:380
+msgid "One IP was deleted successfully"
+msgstr ""
+
+#: includes/whitelist.php:389
+msgid "You have not entered any value"
+msgstr ""
+
+#: includes/whitelist.php:392
+msgid "You have not entered any value in to the search form"
+msgstr ""
+
+#: includes/whitelist.php:394
+msgid "Search results for"
+msgstr ""
+
+#: includes/whitelist.php:408
+msgid "IP-address(es) successfully copied to the whitelist"
+msgstr ""
+
+#: includes/whitelist.php:433
+msgid "use"
+msgstr ""
+
+#: includes/whitelist.php:433
+msgid "whitelist of"
+msgstr ""
+
+#: includes/whitelist.php:441 includes/whitelist.php:449
+#, php-format
+msgid "use whitelist of %s"
+msgstr ""
+
+#: includes/whitelist.php:442
+#, fuzzy, php-format
+msgid "you should %s to use this functionality"
+msgstr "برای استفاده از این قابلیت"
+
+#: includes/whitelist.php:450
+#, fuzzy, php-format
+msgid "you should install %s to use this functionality"
+msgstr "برای استفاده از این قابلیت"
+
+#: includes/package_loader.php:33 includes/package_loader.php:146
+msgid ""
+"Can not load images in to the \"uploads\" folder. Please, check your "
+"permissions."
+msgstr ""
+
+#: includes/package_loader.php:45
+msgid "File packages.txt not found. Package not saved."
+msgstr ""
+
+#: includes/package_loader.php:51
+msgid "Can not read data from packages.txt. Packages not saved."
+msgstr ""
+
+#: includes/package_loader.php:174
+msgid "Package successfully loaded."
+msgstr ""
+
+#: includes/captcha_for_cf7.php:55 includes/captcha_for_cf7.php:57
+#: includes/captcha_for_cf7.php:59
+msgid "BWS CAPTCHA"
+msgstr "معادله‌ی امنیتی BWS"
+
+#: includes/captcha_for_cf7.php:70 includes/captcha_for_cf7.php:91
+#: includes/captcha_for_cf7.php:114
+msgid "Name"
+msgstr "نام"
+
+#: includes/captcha_for_cf7.php:76 includes/captcha_for_cf7.php:97
+msgid "Copy this code and paste it into the form left."
+msgstr "این کد را کپی و در فرم کناری بچسبانید."
+
+#: includes/captcha_for_cf7.php:124
+msgid "Insert Tag"
+msgstr ""
+
+#~ msgid "and"
+#~ msgstr "و"
+
+#~ msgid ""
+#~ "The plugin's settings have been changed. In order to save them please "
+#~ "don't forget to click the 'Save Changes' button."
+#~ msgstr ""
+#~ "تنظیمات افزونه تغییر یافته است، به منظور ذخیره‌سازی آن‌ها لطفا فراموش نکنید "
+#~ "که دکمه «ذخیره‌ی تغییرات» را بفشارید."
+
+#, fuzzy
+#~ msgid "Activate"
+#~ msgstr "فعال‌سازی"
+
+#, fuzzy
+#~ msgid "Download"
+#~ msgstr "دانلود"
+
+#, fuzzy
+#~ msgid "Enable CAPTCHA"
+#~ msgstr "فعال‌سازی کپچا:"
+
+#, fuzzy
+#~ msgid "at least up to v3.4 so that Captcha could work correctly with it"
+#~ msgstr "حداقل تا نسخه‌ی ۳.۴، کپچا می‌تواند با آن درست کار کند"
+
+#~ msgid "Title for CAPTCHA in the form"
+#~ msgstr "عنوان معادله‌ی امنیتی در فرم"
+
+#~ msgid "Error messages"
+#~ msgstr "پیام‌های خطا"
+
+#~ msgid "CAPTCHA complexity level"
+#~ msgstr "سطح پیچیدگی کپچا"
+
+#~ msgid "Activate contact form"
+#~ msgstr "فرم تماس را فعال کن"
+
+#, fuzzy
+#~ msgid "Contact Form"
+#~ msgstr "فرم تماس"
+
+#~ msgid "Download contact form"
+#~ msgstr "فرم تماس را دانلود کن"
+
+#, fuzzy
+#~ msgid "Register form"
+#~ msgstr "فرم ثبت‌نام"
+
+#, fuzzy
+#~ msgid "Lost password form"
+#~ msgstr "فرم بازنشانی گذرواژه"
+
+#~ msgid "requires"
+#~ msgstr "الزامی"
+
+#~ msgid ""
+#~ "or higher, that is why it has been deactivated! Please upgrade WordPress "
+#~ "and try again."
+#~ msgstr ""
+#~ "یا بیشتر، این دلیل غیر فعال‌‌سازی است! لطفا وردپرس را بروزرسانی کنید و "
+#~ "دوباره تلاش کنید ."
+
+#~ msgid "Back to the WordPress"
+#~ msgstr "بازگشت به وردپرس"
+
+#~ msgid "powered by"
+#~ msgstr "ساخته شده توسط"
+
+#~ msgid "Input field settings"
+#~ msgstr "تنظیمات فیلد ورودی"
+
+#~ msgid "optional"
+#~ msgstr "اختیاری"
+
+#~ msgid "Captcha Pro"
+#~ msgstr "معادله‌ی امنیتی حرفه‌ای"
+
+#~ msgid "Network"
+#~ msgstr "شبکه"
+
+#, fuzzy
+#~ msgid "This option will replace all current settings on separate sites."
+#~ msgstr "این تنظیمات جایگزین تمامی تنظیمات فعلی در سایت‌های انفرادی خواهد شد."
+
+#~ msgid ""
+#~ "It is prohibited to change Captcha Pro settings on this site in the "
+#~ "Captcha Pro network settings."
+#~ msgstr ""
+#~ "تغییر تنظیمات کپچای حرفه‌ای در این سایت در تنظیمات کپچای حرفه‌ای شبکه ممنوع "
+#~ "شده است."
+
+#~ msgid ""
+#~ "It is prohibited to view Captcha Pro settings on this site in the Captcha "
+#~ "Pro network settings."
+#~ msgstr ""
+#~ "مشاهده تنظیمات کپچای حرفه‌ای در این سایت در تنظیمات کپچای حرفه‌ای شبکه "
+#~ "ممنوع شده است."
+
+#~ msgid "Apply network settings"
+#~ msgstr "اعمال تنظیمات شبکه"
+
+#, fuzzy
+#~ msgid "Apply to all sites and use by default"
+#~ msgstr "اعمال به تمامی سایت‌ها و استفاده به عنوان پیش‌فرض"
+
+#, fuzzy
+#~ msgid "All current settings on separate sites will be replaced"
+#~ msgstr "تمامی تنظیمات فعلی در سایت‌های انفرادی جایگزین خواهند شد"
+
+#, fuzzy
+#~ msgid "Allow to change the settings on separate websites"
+#~ msgstr "اجازه‌ی تغییر تنظیمات در سایت‌های انفرادی"
+
+#, fuzzy
+#~ msgid "Allow to view the settings on separate websites"
+#~ msgstr "اجازه‌ی مشاهده‌ی تنظیمات در سایت‌های انفرادی"
+
+#, fuzzy
+#~ msgid "Settings will be applied to newly added websites by default"
+#~ msgstr ""
+#~ "به عنوان پیش‌فرض (تنظیمات به‌طور پیش‌فرض برای سایت‌های تازه اضافه شده استفاده "
+#~ "خواهد شد)"
+
+#, fuzzy
+#~ msgid "Change the settings on separate sites of the multisite only"
+#~ msgstr "عدم اعمال (تغییر تنظیمات تنها در سایت‌های انفرادی چندسایتی)"
+
+#~ msgid "Subscriber"
+#~ msgstr "مشترک"
+
+#~ msgid "Activate Subscriber"
+#~ msgstr "فعال‌سازی مشترک"
+
+#~ msgid "Download Subscriber"
+#~ msgstr "دانلود مشترک"
+
+#~ msgid "\"Create a Group\" form"
+#~ msgstr "فرم «ساخت یک گروه»"
+
+#~ msgid "activate Buddypress"
+#~ msgstr "فعال‌سازی Buddypress"
+
+#~ msgid "download Buddypress"
+#~ msgstr "دانلود Buddypress"
+
+#~ msgid "Error:"
+#~ msgstr "خطا:"
+
+#~ msgid ""
+#~ "Something went wrong. Try again later. If the error will appear again, "
+#~ "please, contact us <a href=http://support.bestwebsoft.com>BestWebSoft</"
+#~ "a>. We are sorry for inconvenience."
+#~ msgstr ""
+#~ "مشکلی پیش آمده، بعدا دوباره تلاش نمایید. اگر این مشکل دوباره پیش آمد، "
+#~ "لطفا از طریق <a href=http://support.bestwebsoft.com>BestWebSoft</a> با ما "
+#~ "در ارتباط باشید. به خاطر این اشکال از شما پوزش می‌طلبیم."
+
+#~ msgid "Wrong license key!"
+#~ msgstr "شماره لایسنس اشتباه!"
+
+#~ msgid "This license key is bind to another site"
+#~ msgstr "این شماره لایسنس مربوط به سایت دیگری است"
+
+#~ msgid ""
+#~ "This license key is valid, but Your license has expired. If you want to "
+#~ "update our plugin in future, you should extend the license."
+#~ msgstr ""
+#~ "این شماره لایسنس معتبر ولی منقضی شده است. اگر می‌خواهید افزونه‌ی ما را در "
+#~ "آینده بروزرسانی کنید، می‌بایست لایسنس را گسترش دهید."
+
+#~ msgid "Unfortunately, you have exceeded the number of available tries."
+#~ msgstr "متاسفانه شما از تعداد مجاز تلاش‌های روزانه فراتر رفته‌اید."
+
+#~ msgid "The license key is valid. Your license will expire on"
+#~ msgstr "شماره لایسنس معتبر است. لایسنس شما منقضی خواهد شد در"
+
+#~ msgid "The license key is valid."
+#~ msgstr "شماره لایسنس معتبر است."
+
+#~ msgid "Please, enter your license key"
+#~ msgstr "لطفا شماره لایسنس خود را وارد کنید"
+
+#~ msgid ""
+#~ "If needed you can check if the license key is correct or reenter it in "
+#~ "the field below. You can find your license key on your personal page - "
+#~ "Client area - on our website"
+#~ msgstr ""
+#~ "در صورت نیاز می‌توانید بررسی کنید که آیا شماره لایسنس صحیح است یا آن را در "
+#~ "فیلد زیر دوباره وارد کنید. شما می‌توانید شماره لایسنس خود را در صفحه‌ی "
+#~ "شخصی‌تان - ناحیه کاربری - بر روی سایت ما بیابید."
+
+#~ msgid ""
+#~ "(your username is the email you specify when purchasing the product). If "
+#~ "necessary, please submit \"Lost your password?\" request."
+#~ msgstr ""
+#~ "(شناسه شما همان ایمیلی است که افزونه را با آن خریده‌اید). در صورت لزوم، "
+#~ "لطفا درخواست «آیا رمز خود را فراموش کرده‌اید؟» را ارسال کنید."
+
+#~ msgid "Check license key"
+#~ msgstr "بررسی شماره لایسنس"
+
+#~ msgid "If you enjoy our plugin, please give it 5 stars on WordPress"
+#~ msgstr ""
+#~ "اگر از افزونه‌ی ما لذت بردید، لطفا به آن در سایت وردپرس امتیاز ۵ بدهید"
+
+#~ msgid "Rate the plugin"
+#~ msgstr "امتیازدهی افزونه"
+
+#~ msgid "If there is something wrong about it, please contact us"
+#~ msgstr "اگر افزونه مشکلی دارد لطفا با ما در میان بگذارید"
+
+#~ msgid ""
+#~ "WARNING: We have noticed illegal use of our plugin by you. We strongly "
+#~ "recommend you to solve the problem within 24 hours, otherwise the plugin "
+#~ "will be deactivated. Please go to your personal"
+#~ msgstr ""
+#~ "هشدار: ما متوجه استفاده‌ی غیرمجاز از  افزونه‌ی خودمان توسط شما شده‌ایم. ما "
+#~ "قویا توصیه می‌کنیم که این مشکل را در عرض ۲۴ ساعت حل کنید وگرنه افزونه "
+#~ "غیرفعال خواهد شد. لطفا بروید به"
+
+#~ msgid ""
+#~ "(your username is the email you specify when purchasing the product), "
+#~ "where you can make the necessary changes."
+#~ msgstr ""
+#~ "(شناسه شما همان ایمیلی است که افزونه را با آن خریده‌اید) که در آن شما "
+#~ "می‌توانید تغییرات لازم را انجام کنید."
+
+#~ msgid ""
+#~ "Your license has expired. To continue getting top-priority support and "
+#~ "plugin updates you should extend it in your"
+#~ msgstr ""
+#~ "لایسنس شما منقضی شده است. برای ادامه‌ی پیشتیبانی اولویت بالا و "
+#~ "بروزرسانی‌های افزونه شما می‌بایست که آن را گسترش دهید در"
+
+#~ msgid "You license for"
+#~ msgstr "لایسنس شما برای"
+
+#~ msgid "expires on"
+#~ msgstr "منقضی در"
+
+#~ msgid ""
+#~ "and you won't be granted TOP-PRIORITY SUPPORT or UPDATES. To extend your "
+#~ "license please go to your"
+#~ msgstr ""
+#~ "و به شما پشتیبانی اولویت بالا و بروزرسانی‌ها اعطا نخواهد شد. برای گسترش "
+#~ "لایسنس‌تان لطفا بروید به"
+
+#~ msgid "where you'll be able to do that once this period expires."
+#~ msgstr ""
+#~ "که شما قادر به انجام یک دفعه‌ی این کار در این دوره‌ی انقضا خواهید بود."
+
+#, fuzzy
+#~ msgid "ERROR:"
+#~ msgstr "خطا"
+
+#, fuzzy
+#~ msgid "Invalid CAPTCHA value."
+#~ msgstr "لطفاً معادله ی امنیتی را پُر کنید."
+
+#, fuzzy
+#~ msgid "Please fill the form"
+#~ msgstr "لطفا فرم را پر کنید"

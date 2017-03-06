@@ -1,0 +1,19 @@
+@font-face {font-family: 'ProximaNova-Regular'; src: url('fonts/proximanova-regular-webfont.woff2') format('woff2'), url('fonts/proximanova-regular-webfont.woff') format('woff'); font-weight: normal; font-style: normal;}
+@font-face {font-family: 'ProximaNova-Semibold'; src: url('fonts/proximanova-semibold-webfont.woff2') format('woff2'), url('fonts/proximanova-semibold-webfont.woff') format('woff'); font-weight: normal; font-style: normal;}
+body{background-image: url(images/login_bg.jpg) !important; background-size: cover; background-position: center; background-repeat: no-repeat; box-shadow: inset 0px 0px 50px 10px rgba(0,0,0,0.6); overflow: hidden;transition:0.25s ease-in-out;}
+.login label{color: #000 !important;}
+#login_error{font-family: Arial !important; color: #e00 !important; background: transparent !important; border-left: none !important; text-align: center; margin: 3px;}
+#loginform{background-color:rgba(255,255,255,0.65); box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.45); font-family: 'ProximaNova-Semibold' !important; color: #000; padding: 26px 24px 26px !important;text-transform: uppercase;}
+#loginform p label #user_login, #loginform p label #user_pass {font-weight: normal; padding: 8px 9px; font-size: 14px; font-style: normal; border-right-color: #dadada; border-bottom-color: #dadada; color: #222 !important; border-radius: 4px; -moz-border-radius: 4px; -webkit-border-radius: 4px; outline: none; text-shadow: 0px 1px 0px #fff; background-color: #efefef; background: -webkit-gradient(linear, left top, left bottombottom, from(#f9f9f9), to(#ffffff)) !important; background: -webkit-linear-gradient(top, #f9f9f9, #ffffff) !important;   background: -moz-linear-gradient(top,  #f9f9f9,  #ffffff) !important; background: -ms-linear-gradient(top, #f9f9f9, #ffffff) !important; background: -o-linear-gradient(top, #f9f9f9, #ffffff); opacity: .85; transition: 0.08s;}
+ #loginform p label #user_login:focus, #loginform p label #user_pass:focus, #loginform p label #user_login:hover, #loginform p label #user_pass:hover {opacity:1;}
+ #loginform p label #user_login:-webkit-autofill, #loginform p label #user_pass:-webkit-autofill {background-color: #e6e6e6 !important;}
+#login{padding: 5% 0 0;width:425px;}
+#login h1 {display: block; position: relative;  height: 100px;  margin-top: 5px; }
+#login h1 a {background-color: #FFF; background-image: url(images/login_logo.png) !important; background-repeat: no-repeat; background-size: cover; background-position: top center;  display: block;  width: 425px;  height: 100px; transition: 0.25s; border: none !important; box-shadow: none !important;}
+#login h1 a:hover {}
+.button-primary{background: #083 !important; border-width: 0px !important; box-shadow: none !important; text-shadow: none !important; margin-bottom: 0 !important; transition: 0.25s;}
+.button-primary: hover{background: #eee !important; color: #0a4 !important;} 
+#login #nav{display:none !important;} 
+.login #backtoblog{text-align: center !important;}
+.login #backtoblog a{width: 50%; font-family: 'ProximaNova-Semibold' !important; transition: .3s; padding: 3px 10px; margin: 0; color:#FFF !important;}
+.login #backtoblog a:hover{}

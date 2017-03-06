@@ -1,0 +1,89 @@
+@media only screen and (max-width:7680px){
+	.c-hamburger{display:none !important;}
+
+	header#main_header.scrolled{position:fixed;}
+
+	header#main_header .top_header_utility .utility ul > li > a:before {padding: 0 0 0 0.85rem;}
+
+	header#main_header .top_header #primary_navigation{/*position:absolute;bottom:1.25rem;*/padding-top:3rem;}
+	header#main_header .top_header #primary_navigation > ul > li > a{font-size:15px;margin:0;padding:1rem 1.1rem;}
+	header#main_header .top_header #primary_navigation > ul > li:hover > .sub-menu > li > a{font-size:16px;margin:0;padding:0.75rem 1.5rem;}
+
+	#main_content.frontpage .section.hero #hero-owl-carousel-container .hero-item .caption{width:40%;bottom:16%;padding:1.5rem;}
+	#main_content.frontpage .section.hero #hero-owl-carousel-container .hero-item .caption h4{font-size:22px;}
+	#hero-owl-carousel-container #hero-owl-carousel .owl-controls .owl-nav{display:block;}
+}
+
+@media only screen and (max-width:1920px){
+}
+
+@media only screen and (max-width:1768px){
+}
+
+@media only screen and (max-width:1680px){
+}
+
+@media only screen and (max-width:1600px){
+}
+
+@media only screen and (max-width:1440px){
+}
+
+@media only screen and (max-width:1366px){
+}
+
+@media only screen and (max-width:1280px){
+}
+
+@media only screen and (max-width:1024px){
+
+}
+
+@media only screen and (max-width:1023px){
+
+}
+
+@media only screen and (max-width:1000px){
+	header#main_header.scrolled{position:relative;}
+}
+
+@media only screen and (max-width: 960px){
+
+}
+
+@media only screen and (max-width:959px){
+}
+
+@media only screen and (max-width:768px){
+}
+
+@media only screen and (max-width:640px){
+
+}
+
+@media only screen and (max-width:603px){
+}
+
+@media only screen and (max-width:600px){	
+}
+
+@media only screen and (max-width:533px){
+}
+	
+@media only screen and (max-width:532px){
+}
+
+@media only screen and (max-width:414px){
+}
+
+@media only screen and (max-width:375px){
+}
+
+@media only screen and (max-width:360px){
+}
+
+@media only screen and (max-width:320px){
+}
+
+@media only screen and (max-width:240px){
+}

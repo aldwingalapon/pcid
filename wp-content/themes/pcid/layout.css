@@ -12,6 +12,8 @@
 	#main_content.frontpage .section.hero #hero-owl-carousel-container .hero-item .caption{width:40%;bottom:16%;padding:1.5rem;}
 	#main_content.frontpage .section.hero #hero-owl-carousel-container .hero-item .caption h4{font-size:22px;}
 	#hero-owl-carousel-container #hero-owl-carousel .owl-controls .owl-nav{display:block;}
+
+	#main_content.frontpage .section.gallery .ngg-galleryoverview .ngg-gallery-thumbnail-box{width:25% !important;}
 }
 
 @media only screen and (max-width:1920px){
@@ -45,6 +47,8 @@
 
 @media only screen and (max-width:1000px){
 	header#main_header.scrolled{position:relative;}
+
+	#main_content.frontpage .section.gallery .ngg-galleryoverview .ngg-gallery-thumbnail-box{width:50% !important;}
 }
 
 @media only screen and (max-width: 960px){
@@ -71,6 +75,7 @@
 }
 	
 @media only screen and (max-width:532px){
+	#main_content.frontpage .section.gallery .ngg-galleryoverview .ngg-gallery-thumbnail-box{width:100% !important;}
 }
 
 @media only screen and (max-width:414px){

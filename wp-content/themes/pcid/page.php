@@ -33,7 +33,7 @@
 										dynamic_sidebar( get_sub_field('sidebar_widget', $the_ID ) );
 									endwhile;
 								else :
-										dynamic_sidebar('Default Sidebar');
+										dynamic_sidebar('Default Page Sidebar');
 								endif;
 							?>					
 						</div>

@@ -86,6 +86,13 @@ add_filter('show_admin_bar', '__return_false');
 function rboct_remove_version() {return '';}
 add_filter('the_generator', 'rboct_remove_version');
 
+function my_acf_google_map_api( $api ){
+	$api['key'] = 'AIzaSyDOiDvxa8z9wWPR8YJGaFkty1JFA4XXy_Q';
+	return $api;
+}
+add_filter('acf/fields/google_map/api', 'my_acf_google_map_api');
+//Making jQuery Google API
+
 //Making jQuery Google API
 function modify_jquery() {
 	if (!is_admin()) {
@@ -94,7 +101,7 @@ function modify_jquery() {
 		wp_enqueue_script('jquery');
 	}
 }
-add_action('init', 'modify_jquery');
+//add_action('init', 'modify_jquery');
 
 // custom menu support
 add_theme_support( 'menus' );
@@ -261,6 +268,16 @@ function the_breadcrumbs() {
 				echo " <span class='sep'></span> ";
 				echo "<span>".get_the_title()."</span>";
 			}
+		} elseif (is_singular('video')) {
+			echo " <span class='sep'></span> ";
+			$post_object = get_field('videos_page', 'option');
+			if( $post_object ){
+				$post = $post_object;
+				setup_postdata( $post ); 
+				echo "<span class='videos-page'><a href='".get_the_permalink()."'>" . get_the_title() . "</a></span>";
+				wp_reset_postdata();
+			}
+			echo "<span class='sep'></span> <span class='single-video-".$post->ID."'>".get_the_title()."</span>";
 		} elseif (is_singular('story')) {
 			echo " <span class='sep'></span> ";
 
@@ -678,6 +695,43 @@ function cptui_register_my_cpts_event() {
 	register_post_type( "event", $args );
 
 // End of cptui_register_my_cpts_event()
+}
+
+add_action( 'init', 'cptui_register_my_cpts_video' );
+function cptui_register_my_cpts_video() {
+	$labels = array(
+		"name" => __( 'Videos', 'pcid' ),
+		"singular_name" => __( 'Video', 'pcid' ),
+		"search_items" => __( 'Search Videos', 'pcid' ),
+		"all_items" => __( 'All Videos', 'pcid' ),
+		"edit_item" => __( 'Edit Video', 'pcid' ),
+		"update_item" => __( 'Update Video', 'pcid' ),
+		"add_new_item" => __( 'Add New Video', 'pcid' ),
+		"new_item_name" => __( 'New Video', 'pcid' ),
+		"menu_name" => __( 'Video', 'pcid' ),
+		);
+	$args = array(
+		"label" => __( 'Videos', 'pcid' ),
+		"labels" => $labels,
+		"description" => "",
+		"public" => true,
+		"publicly_queryable" => true,
+		"show_ui" => true,
+		"show_in_rest" => false,
+		"rest_base" => "",
+		"has_archive" => false,
+		"show_in_menu" => true,
+				"exclude_from_search" => false,
+		"capability_type" => "post",
+		"map_meta_cap" => true,
+		"hierarchical" => false,
+		"rewrite" => array( "slug" => "video", "with_front" => true ),
+		"query_var" => true,
+		"menu_position" => 5,"menu_icon" => "dashicons-video-alt3",
+		"supports" => array( "title", "thumbnail", "page-attributes" ),
+		"taxonomies" => array( "category", "post_tag" ),
+			);	register_post_type( "video", $args );
+// End of cptui_register_my_cpts_video()
 }
 
 add_action( 'init', 'cptui_register_my_cpts_slider' );

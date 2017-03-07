@@ -66,13 +66,13 @@
 													<span class="post-details">
 														<?php the_time('j F Y') ?> / <?php $link = get_permalink(get_the_ID()); echo FacebookShareCount::get_share_count($link); ?> Shares /  by 
 														<?php
-															if( have_rows('authors', $the_ID ) ):
-																while ( have_rows('authors', $the_ID ) ) : the_row();
-																	$author_name = get_sub_field('author_name', $the_ID );
-																	$author_designation = get_sub_field('author_designation', $the_ID );
-																	$author_photo = get_sub_field('author_photo', $the_ID );
-																	$author_link = get_sub_field('author_link', $the_ID );
-																	$author_link_target = get_sub_field('author_link_target', $the_ID );
+															if( have_rows('authors', get_the_ID() ) ):
+																while ( have_rows('authors', get_the_ID() ) ) : the_row();
+																	$author_name = get_sub_field('author_name', get_the_ID() );
+																	$author_designation = get_sub_field('author_designation', get_the_ID() );
+																	$author_photo = get_sub_field('author_photo', get_the_ID() );
+																	$author_link = get_sub_field('author_link', get_the_ID() );
+																	$author_link_target = get_sub_field('author_link_target', get_the_ID() );
 																	if($author_link){
 																		echo ('<a href="' . $author_link . '" target="' . $author_link_target . '" title="' . $author_name . '">' . $author_name . '</a>');
 																	}else{
@@ -84,11 +84,11 @@
 															endif;
 														?>					
 														<?php
-															if( have_rows('links', $the_ID ) ): echo (' (');
-																while ( have_rows('links', $the_ID ) ) : the_row();
-																	$link_name = get_sub_field('link_name', $the_ID );
-																	$link_url = get_sub_field('link_url', $the_ID );
-																	$link_target = get_sub_field('link_target', $the_ID );
+															if( have_rows('links', get_the_ID() ) ): echo (' (');
+																while ( have_rows('links', get_the_ID() ) ) : the_row();
+																	$link_name = get_sub_field('link_name', get_the_ID() );
+																	$link_url = get_sub_field('link_url', get_the_ID() );
+																	$link_target = get_sub_field('link_target', get_the_ID() );
 																	if($link_url){
 																		echo ('<a href="' . $link_url . '" target="' . $link_target . '" title="' . $link_name . '">' . $link_name . '</a>');
 																	}else{

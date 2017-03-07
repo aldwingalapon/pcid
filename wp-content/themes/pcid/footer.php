@@ -68,6 +68,8 @@
 		</footer>
 	</div>
 
+	<script type="text/javascript" src="<?php echo get_stylesheet_directory_uri(); ?>/js/jquery-1.12.4.min.js"></script>
+
 	<?php wp_footer(); ?>
 
 	<script type="text/javascript" src="<?php echo get_stylesheet_directory_uri(); ?>/js/modernizr.js" defer></script>

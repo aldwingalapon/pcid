@@ -55,15 +55,25 @@ $(document).ready(function(){
 
 			$("#main_content.news-page .inner_content .article .news_item .news_content").height(maxHeight2);
 
-			$("#main_content.single-page .inner_content .article .board-member").css('height', 'auto');
+			$("#main_content.single-page .inner_content .article .personnel").css('height', 'auto');
 
 			var maxHeight3 = 0;
 
-			$("#main_content.single-page .inner_content .article .board-member").each(function(){
+			$("#main_content.single-page .inner_content .article .personnel").each(function(){
 			   if ($(this).height() > maxHeight3) { maxHeight3 = $(this).height(); }
 			});
 
-			$("#main_content.single-page .inner_content .article .board-member").height(maxHeight3);
+			$("#main_content.single-page .inner_content .article .personnel").height(maxHeight3);
+			
+			$("#main_content.publication-page .inner_content .article .publication_item .publication_content").css('height', 'auto');
+
+			var maxHeight4 = 0;
+
+			$("#main_content.publication-page .inner_content .article .publication_item .publication_content").each(function(){
+			   if ($(this).height() > maxHeight4) { maxHeight4 = $(this).height(); }
+			});
+
+			$("#main_content.publication-page .inner_content .article .publication_item .publication_content").height(maxHeight4);
 		}
 	});
 
@@ -113,10 +123,12 @@ function init() {
 		if ($(window).width() >= 1000) {
 			if (distanceY > shrinkOn) {
 				classie.add(header,"scrolled");
+				$("header#main_header .top_header .column-nav").height('auto');
 				$("#main_content").css('padding-top', $("header#main_header").height() + 'px');
 			} else {
 				if (classie.has(header,"scrolled")) {
 					classie.remove(header,"scrolled");
+					$("header#main_header .top_header .column-nav").height($('header#main_header .top_header .column-logo').height());
 					$("#main_content").css('padding-top', '0');
 				}
 			}
@@ -142,3 +154,31 @@ function setCookie(cname, cvalue, exdays) {
 	var expires = "expires="+d.toUTCString();
 	document.cookie = cname + "=" + cvalue + "; " + expires;
 }
+
+(function() {
+	"use strict";
+	var toggles = document.querySelectorAll(".c-hamburger");
+	for (var i = toggles.length - 1; i >= 0; i--) {
+		var toggle = toggles[i];
+		toggleHandler(toggle);
+	};
+	function toggleHandler(toggle) {
+		toggle.addEventListener( "click", function(e) {
+			e.preventDefault();
+			if (this.classList.contains("is-active") === true) {
+				this.classList.remove("is-active");
+				$('header#main_header .top_header .column-nav').css('display', 'none');
+				$('header#main_header .top_header .column-nav #primary_navigation ul.primary-menu').slideUp('fast');
+				$('header#main_header .top_header .column-nav #primary_navigation ul.primary-menu').removeClass('menu-toggle-on');
+				$('header#main_header .top_header .column-nav #primary_navigation').removeClass('menu-on');
+			} else{
+				this.classList.add("is-active");
+				$('header#main_header .top_header .column-nav').css('display', 'block');
+				$('header#main_header .top_header .column-nav #primary_navigation').addClass('menu-on');
+				$('header#main_header .top_header .column-nav #primary_navigation ul.primary-menu').addClass('menu-toggle-on');
+				$('header#main_header .top_header .column-nav #primary_navigation ul.primary-menu').slideDown('medium');
+			}
+			
+		});
+	}
+})();

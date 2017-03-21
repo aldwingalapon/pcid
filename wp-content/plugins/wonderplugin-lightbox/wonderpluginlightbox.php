@@ -3,17 +3,17 @@
 Plugin Name: WonderPlugin Lightbox
 Plugin URI: http://www.wonderplugin.com
 Description: WordPress Lightbox Plugin
-Version: 4.9
+Version: 5.6
 Author: Magic Hills Pty Ltd
 Author URI: http://www.wonderplugin.com
 License: Copyright 2015 Magic Hills Pty Ltd, All Rights Reserved
 */
 
-define('WONDERPLUGIN_LIGHTBOX_VERSION', '4.9');
+define('WONDERPLUGIN_LIGHTBOX_VERSION', '5.6');
 define('WONDERPLUGIN_LIGHTBOX_URL', plugin_dir_url( __FILE__ ));
 define('WONDERPLUGIN_LIGHTBOX_PATH', plugin_dir_path( __FILE__ ));
 define('WONDERPLUGIN_LIGHTBOX_PLUGIN', basename(dirname(__FILE__)) . '/' . basename(__FILE__));
-define('WONDERPLUGIN_LIGHTBOX_PLUGIN_VERSION', '4.9');
+define('WONDERPLUGIN_LIGHTBOX_PLUGIN_VERSION', '5.6');
 
 require_once 'app/class-wonderplugin-lightbox-controller.php';
 

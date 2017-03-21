@@ -65,6 +65,11 @@ class WonderPlugin_Lightbox_Model {
 		$options['thumbtopmargin'] = intval(trim($options['thumbtopmargin']));
 		$options['thumbbottommargin'] = intval(trim($options['thumbbottommargin']));
 		
+		$options['shownavigation'] = isset($options['shownavigation']) ? true : false;
+		$options['navbgcolor'] = trim($options['navbgcolor']);
+		$options['shownavcontrol'] = isset($options['shownavcontrol']) ? true : false;
+		$options['hidenavdefault'] = isset($options['hidenavdefault']) ? true : false;
+		
 		$options['barheight'] = intval(trim($options['barheight']));
 		$options['titlebottomcss'] = trim($options['titlebottomcss']);
 		
@@ -155,7 +160,11 @@ class WonderPlugin_Lightbox_Model {
 				'showfacebook' => true,
 				'showtwitter' => true,
 				'showpinterest' => true,
-				'bordertopmargin' => 48
+				'bordertopmargin' => 48,
+				'shownavigation' => true,
+				'navbgcolor' => "rgba(0,0,0,0.2)",
+				'shownavcontrol' => true,
+				'hidenavdefault' => false
 			);
 		
 		$options = json_decode(trim(get_option("wonderplugin-lightbox-options")), true);

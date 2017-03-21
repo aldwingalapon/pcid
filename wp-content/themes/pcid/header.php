@@ -77,7 +77,7 @@
 						<div class="col-md-12 utility">
 							<?php wp_nav_menu( array( 'theme_location' => 'utility_navigation', 'items_wrap' => '<ul class="utility-menu">%3$s</ul>', 'link_before' => '<span class="utility_nav_item">', 'link_after'  => '</span>' ) ); ?>
 							<form role="search" method="get" id="menu_searchform" class="search-form collapse" action="<?php echo home_url( '/' ); ?>">
-								<input type="search" class="search-field" placeholder="<?php echo esc_attr_x((($blogname && $blogdesc) ? 'Search the ' . $blogname . ' - ' . $blogdesc . ' website' : 'Search the ' . $blogname . ' website'), 'placeholder' ) ?>" value="<?php echo get_search_query() ?>" name="s" title="<?php echo esc_attr_x( 'Search for:', 'label' ) ?>" />
+								<input type="search" class="search-field" placeholder="<?php echo esc_attr_x((($blogname && $blogdesc) ? 'Search the ' . $blogname . ' - ' . $blogdesc . ' website' : 'Search the ' . $blogname . ' website'), 'placeholder' ) ?>" value="<?php echo get_search_query() ?>" name="s" title="<?php echo esc_attr_x( 'Search for:', 'label' ) ?>" /><input type="hidden" name="search-type" value="all">
 							</form>
 						</div>
 						<div class="clearfix clear"></div>
@@ -90,7 +90,7 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-md-2 column-logo">
-							<a href="<?php echo get_settings('home'); ?>" title="<?php echo (($blogname && $blogdesc) ? $blogname . ' - ' . $blogdesc : $blogname); ?>" class="logo"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/header-logo.png" title="<?php echo (($blogname && $blogdesc) ? $blogname . ' - ' . $blogdesc : $blogname); ?>" alt="<?php echo (($blogname && $blogdesc) ? $blogname . ' - ' . $blogdesc : $blogname); ?>" width="120" height="120" /></a>
+							<a href="<?php echo get_settings('home'); ?>" title="<?php echo (($blogname && $blogdesc) ? $blogname . ' - ' . $blogdesc : $blogname); ?>" class="logo"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/header-logo@3x.png" title="<?php echo (($blogname && $blogdesc) ? $blogname . ' - ' . $blogdesc : $blogname); ?>" alt="<?php echo (($blogname && $blogdesc) ? $blogname . ' - ' . $blogdesc : $blogname); ?>" width="160" height="160" /></a>
 							<button class="c-hamburger c-hamburger--htx"><span>toggle menu</span></button>
 						</div>
 						<div class="col-md-10 column-nav">

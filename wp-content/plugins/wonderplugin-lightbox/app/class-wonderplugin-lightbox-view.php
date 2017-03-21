@@ -170,7 +170,7 @@ class WonderPlugin_Lightbox_View {
         <ul class="wonderplugin-tab-buttons-horizontal" data-panelsid="wonderplugin-lightbox-panels">
 			<li class="wonderplugin-tab-button-horizontal wonderplugin-tab-button-horizontal-selected"><?php _e( 'General', 'wonderplugin_lightbox' ); ?></li>
 			<li class="wonderplugin-tab-button-horizontal"></span><?php _e( 'Video', 'wonderplugin_lightbox' ); ?></li>
-			<li class="wonderplugin-tab-button-horizontal"></span><?php _e( 'Thubmails', 'wonderplugin_lightbox' ); ?></li>
+			<li class="wonderplugin-tab-button-horizontal"></span><?php _e( 'Thumbnails', 'wonderplugin_lightbox' ); ?></li>
 			<li class="wonderplugin-tab-button-horizontal"></span><?php _e( 'Text', 'wonderplugin_lightbox' ); ?></li>
 			<li class="wonderplugin-tab-button-horizontal"></span><?php _e( 'Social Media', 'wonderplugin_lightbox' ); ?></li>
 			<li class="wonderplugin-tab-button-horizontal"></span><?php _e( 'Advanced Options', 'wonderplugin_lightbox' ); ?></li>
@@ -277,6 +277,20 @@ class WonderPlugin_Lightbox_View {
 					<th scope="row">Thumbnail bottom margin (px)</th>
 					<td><input name="thumbbottommargin" type="number" id="thumbbottommargin" value="<?php echo esc_html($lightbox_options['thumbbottommargin']); ?>" class="small-text" /></td>
 				</tr>
+				
+				<tr valign="top">
+					<th scope="row">Thumbnail navigation background color</th>
+					<td><input name="navbgcolor" type="text" id="navbgcolor" value="<?php echo esc_html($lightbox_options['navbgcolor']); ?>" class="regular-text" /></td>
+				</tr>
+				
+				<tr valign="top">
+					<th scope="row">Thumbnail navigation</th>
+					<td>
+					<p><label><input name="shownavigation" type="checkbox" id="shownavigation" value="1" <?php echo $lightbox_options['shownavigation'] ? "checked": ""; ?> /> Show thumbnails navigation</label></p>
+					<p><label><input name="shownavcontrol" type="checkbox" id="shownavcontrol" value="1" <?php echo $lightbox_options['shownavcontrol'] ? "checked": ""; ?> /> Display a button to show/hide the thumbnails</label></p>
+					<p><label><input name="hidenavdefault" type="checkbox" id="hidenavdefault" value="1" <?php echo $lightbox_options['hidenavdefault'] ? "checked": ""; ?> /> When the show/hide button is displayed, hide the thumbnails by default </label></p></td>
+				</tr>
+			
         	</table>
         	</li>
         	
@@ -436,53 +450,53 @@ class WonderPlugin_Lightbox_View {
 		<?php } ?>
 		
 		<h3 id="imagelightbox">Image Lightbox</h3>
-		<p>Live demo: <a href="<?php echo WONDERPLUGIN_LIGHTBOX_URL; ?>images/demo-image0.jpg" class="wplightbox" title="WonderPlugin Image Lightbox">Image Lightbox</a></p>
+		<p>Live demo: <a href="https://www.wonderplugin.com/videos/demo-image0.jpg" class="wplightbox" title="WonderPlugin Image Lightbox">Image Lightbox</a></p>
 		<p>Demo code:</p>
-		<div class="code">&lt;a href=&quot;<?php echo WONDERPLUGIN_LIGHTBOX_URL; ?>images/demo-image0.jpg&quot; <span>class=&quot;wplightbox&quot;</span> title=&quot;WonderPlugin Image Lightbox&quot;&gt;Image Lightbox&lt;/a&gt;</div>
+		<div class="code">&lt;a href=&quot;https://www.wonderplugin.com/videos/demo-image0.jpg&quot; <span>class=&quot;wplightbox&quot;</span> title=&quot;WonderPlugin Image Lightbox&quot;&gt;Image Lightbox&lt;/a&gt;</div>
 		
 		<h3 id="youtubelightbox">YouTube Lightbox</h3>
-		<p>Live demo: <a href="http://www.youtube.com/embed/c9-gOVGjHvQ" class="wplightbox" title="WordPress Carousel Plugin" data-width="640" data-height="360">YouTube Lightbox</a></p>
+		<p>Live demo: <a href="https://www.youtube.com/embed/c9-gOVGjHvQ" class="wplightbox" title="WordPress Carousel Plugin" data-width="640" data-height="360">YouTube Lightbox</a></p>
 		<p>Demo code:</p>
-		<div class="code">&lt;a href=&quot;http://www.youtube.com/embed/c9-gOVGjHvQ&quot; <span>class=&quot;wplightbox&quot;</span> title=&quot;WordPress Carousel Plugin&quot; <span>data-width=&quot;640&quot;</span> <span>data-height=&quot;360&quot;</span>&gt;YouTube Lightbox&lt;/a&gt;</div>
+		<div class="code">&lt;a href=&quot;https://www.youtube.com/embed/c9-gOVGjHvQ&quot; <span>class=&quot;wplightbox&quot;</span> title=&quot;WordPress Carousel Plugin&quot; <span>data-width=&quot;640&quot;</span> <span>data-height=&quot;360&quot;</span>&gt;YouTube Lightbox&lt;/a&gt;</div>
 		
 		<h3 id="vimeolightbox">Vimeo Lightbox</h3>
-		<p>Live demo: <a href="http://player.vimeo.com/video/147149584" class="wplightbox" title="WordPress Slider Plugin">Vimeo Lightbox</a></p>
+		<p>Live demo: <a href="https://player.vimeo.com/video/147149584" class="wplightbox" title="WordPress Slider Plugin">Vimeo Lightbox</a></p>
 		<p>Demo code:</p>
-		<div class="code">&lt;a href=&quot;http://player.vimeo.com/video/147149584&quot; <span>class=&quot;wplightbox&quot;</span> title=&quot;WordPress Slider Plugin&quot;&gt;Vimeo Lightbox&lt;/a&gt;</div>
+		<div class="code">&lt;a href=&quot;https://player.vimeo.com/video/147149584&quot; <span>class=&quot;wplightbox&quot;</span> title=&quot;WordPress Slider Plugin&quot;&gt;Vimeo Lightbox&lt;/a&gt;</div>
 		
 		<h3 id="mp4lightbox">MP4/WebM video Lightbox</h3>
 		<p>To play your video in Lightbox, you only need to provide one MP4 format.</p>
 		<p>On iPhone, iPad, Android, Chrome, Safari, Internet Explorer 10 and above, the plugin will use HTML5 to play the MP4 video. On legacy web browsers Internet Explorer 7/8/9, the plugin will use Flash to play the MP4 video.</p>
 		<p>You can also use <code>data-webm</code> to add a video for Firefox and Opera HTML5 player. Providing a WebM format is optional. If the WebM video is not provided, the plugin will use Flash to play MP4 on Firefox and Opera.</p>
 		<p>The provided MP4 and WebM videos must be HTML5 compatible. Please visit the link for <a href="http://www.wonderplugin.com/wordpress-tutorials/how-to-convert-video-to-html5-compatible/" target="_blank">how to convert vidoe to HTML5 compabitle</a>.</p>
-		<p>Live demo: <a href="<?php echo WONDERPLUGIN_LIGHTBOX_URL; ?>images/demo-video0.mp4" data-webm="<?php echo WONDERPLUGIN_LIGHTBOX_URL; ?>images/demo-video0.webm" class="wplightbox" title="Big Buck Bunny Copyright Blender Foundation">Video Lightbox</a></p>
-		<p>Demo code:</p>
-		<div class="code">&lt;a href=&quot;<?php echo WONDERPLUGIN_LIGHTBOX_URL; ?>images/demo-video0.mp4&quot; data-webm=&quot;<?php echo WONDERPLUGIN_LIGHTBOX_URL; ?>images/demo-video0.webm&quot; <span>class=&quot;wplightbox&quot;</span> title=&quot;Big Buck Bunny Copyright Blender Foundation&quot;&gt;Video Lightbox&lt;/a&gt;</div>
+		<p>Live demo: <a href="https://www.wonderplugin.com/videos/demo-video0.mp4" data-webm="https://www.wonderplugin.com/videos/demo-video0.webm" class="wplightbox" title="Big Buck Bunny Copyright Blender Foundation">Video Lightbox</a></p>
+		<p>Demo code (please make sure to change the video URL to your own):</p>
+		<div class="code">&lt;a href=&quot;https://www.wonderplugin.com/videos/demo-video0.mp4&quot; data-webm=&quot;https://www.wonderplugin.com/videos/demo-video0.webm&quot; <span>class=&quot;wplightbox&quot;</span> title=&quot;Big Buck Bunny Copyright Blender Foundation&quot;&gt;Video Lightbox&lt;/a&gt;</div>
 		
 		<h3 id="lightboxgallery">Image & video Lightbox gallery with thumbnail navigation</h3>
 		<p>To create a gallery of images and videos, you can add a attribute <code>data-group</code> to the related links. You can use any string as the group name, as long as all of the links in one gallery has same value.</p>
 		<p>You can use <code>data-thumbnail</code> to add thumbnail navigation to the gallery.</p>
 		<p>Live demo</p>
 		<p>
-		<a href="<?php echo WONDERPLUGIN_LIGHTBOX_URL; ?>images/demo-image1.jpg" class="wplightbox" data-group="gallery0" data-thumbnail="<?php echo WONDERPLUGIN_LIGHTBOX_URL; ?>images/demo-image1-tn.jpg" title="Image"><img src="<?php echo WONDERPLUGIN_LIGHTBOX_URL; ?>images/demo-image1-tn.jpg" /></a>
-		<a href="http://www.youtube.com/embed/c9-gOVGjHvQ?rel=0&vq=hd1080" class="wplightbox" data-group="gallery0" data-thumbnail="<?php echo WONDERPLUGIN_LIGHTBOX_URL; ?>images/demo-youtube-tn.jpg" title="YouTube"><img src="<?php echo WONDERPLUGIN_LIGHTBOX_URL; ?>images/demo-youtube-tn.jpg" /></a>
-		<a href="http://player.vimeo.com/video/147149584?title=0&byline=0&portrait=0" class="wplightbox" data-group="gallery0" data-thumbnail="<?php echo WONDERPLUGIN_LIGHTBOX_URL; ?>images/demo-vimeo-tn.jpg" title="Vimeo"><img src="<?php echo WONDERPLUGIN_LIGHTBOX_URL; ?>images/demo-vimeo-tn.jpg" /></a>
-		<a href="<?php echo WONDERPLUGIN_LIGHTBOX_URL; ?>images/demo-video1.mp4" data-webm="<?php echo WONDERPLUGIN_LIGHTBOX_URL; ?>images/demo-video1.webm" class="wplightbox" data-group="gallery0" data-thumbnail="<?php echo WONDERPLUGIN_LIGHTBOX_URL; ?>images/demo-video-tn.jpg" title="Video"><img src="<?php echo WONDERPLUGIN_LIGHTBOX_URL; ?>images/demo-video-tn.jpg" /></a>
+		<a href="https://www.wonderplugin.com/videos/demo-image1.jpg" class="wplightbox" data-group="gallery0" data-thumbnail="https://www.wonderplugin.com/videos/demo-image1-tn.jpg" title="Image"><img src="https://www.wonderplugin.com/videos/demo-image1-tn.jpg" /></a>
+		<a href="https://www.youtube.com/embed/c9-gOVGjHvQ?rel=0&vq=hd1080" class="wplightbox" data-group="gallery0" data-thumbnail="https://www.wonderplugin.com/videos/demo-youtube-tn.jpg" title="YouTube"><img src="https://www.wonderplugin.com/videos/demo-youtube-tn.jpg" /></a>
+		<a href="https://player.vimeo.com/video/147149584?title=0&byline=0&portrait=0" class="wplightbox" data-group="gallery0" data-thumbnail="https://www.wonderplugin.com/videos/demo-vimeo-tn.jpg" title="Vimeo"><img src="https://www.wonderplugin.com/videos/demo-vimeo-tn.jpg" /></a>
+		<a href="https://www.wonderplugin.com/videos/demo-video1.mp4" data-webm="https://www.wonderplugin.com/videos/demo-video1.webm" class="wplightbox" data-group="gallery0" data-thumbnail="https://www.wonderplugin.com/videos/demo-video-tn.jpg" title="Video"><img src="https://www.wonderplugin.com/videos/demo-video-tn.jpg" /></a>
 		</p>
-		<p>Demo code:</p>
+		<p>Demo code (please make sure to change the image and video URL to your own):</p>
 		<div class="code">
-		&lt;a href=&quot;<?php echo WONDERPLUGIN_LIGHTBOX_URL; ?>images/demo-image1.jpg&quot; <span>class=&quot;wplightbox&quot;</span> <span>data-group=&quot;gallery0&quot;</span> <span>data-thumbnail=&quot;<?php echo WONDERPLUGIN_LIGHTBOX_URL; ?>images/demo-image1-tn.jpg&quot;</span> title=&quot;Image&quot;&gt;Image&lt;/a&gt;
-		<br /><br />&lt;a href=&quot;http://www.youtube.com/embed/c9-gOVGjHvQ?rel=0&amp;vq=hd1080&quot; <span>class=&quot;wplightbox&quot;</span> <span>data-group=&quot;gallery0&quot;</span> <span>data-thumbnail=&quot;<?php echo WONDERPLUGIN_LIGHTBOX_URL; ?>images/demo-youtube-tn.jpg&quot;</span> title=&quot;YouTube&quot;&gt;YouTube&lt;/a&gt;
-		<br /><br />&lt;a href=&quot;http://player.vimeo.com/video/147149584?title=0&amp;byline=0&amp;portrait=0&quot; <span>class=&quot;wplightbox&quot;</span> <span>data-group=&quot;gallery0&quot;</span> <span>data-thumbnail=&quot;<?php echo WONDERPLUGIN_LIGHTBOX_URL; ?>images/demo-vimeo-tn.jpg&quot;</span> title=&quot;Vimeo&quot;&gt;Vimeo&lt;/a&gt;
-		<br /><br />&lt;a href=&quot;<?php echo WONDERPLUGIN_LIGHTBOX_URL; ?>images/demo-video1.mp4&quot; data-webm=&quot;<?php echo WONDERPLUGIN_LIGHTBOX_URL; ?>images/demo-video1.webm&quot; <span>class=&quot;wplightbox&quot;</span> <span>data-group=&quot;gallery0&quot;</span> <span>data-thumbnail=&quot;<?php echo WONDERPLUGIN_LIGHTBOX_URL; ?>images/demo-video-tn.jpg&quot;</span> title=&quot;Video&quot;&gt;Video&lt;/a&gt;
+		&lt;a href=&quot;https://www.wonderplugin.com/videos/demo-image1.jpg&quot; <span>class=&quot;wplightbox&quot;</span> <span>data-group=&quot;gallery0&quot;</span> <span>data-thumbnail=&quot;https://www.wonderplugin.com/videos/demo-image1-tn.jpg&quot;</span> title=&quot;Image&quot;&gt;Image&lt;/a&gt;
+		<br /><br />&lt;a href=&quot;https://www.youtube.com/embed/c9-gOVGjHvQ?rel=0&amp;vq=hd1080&quot; <span>class=&quot;wplightbox&quot;</span> <span>data-group=&quot;gallery0&quot;</span> <span>data-thumbnail=&quot;https://www.wonderplugin.com/videos/demo-youtube-tn.jpg&quot;</span> title=&quot;YouTube&quot;&gt;YouTube&lt;/a&gt;
+		<br /><br />&lt;a href=&quot;https://player.vimeo.com/video/147149584?title=0&amp;byline=0&amp;portrait=0&quot; <span>class=&quot;wplightbox&quot;</span> <span>data-group=&quot;gallery0&quot;</span> <span>data-thumbnail=&quot;https://www.wonderplugin.com/videos/demo-vimeo-tn.jpg&quot;</span> title=&quot;Vimeo&quot;&gt;Vimeo&lt;/a&gt;
+		<br /><br />&lt;a href=&quot;https://www.wonderplugin.com/videos/demo-video1.mp4&quot; data-webm=&quot;https://www.wonderplugin.com/videos/demo-video1.webm&quot; <span>class=&quot;wplightbox&quot;</span> <span>data-group=&quot;gallery0&quot;</span> <span>data-thumbnail=&quot;https://www.wonderplugin.com/videos/demo-video-tn.jpg&quot;</span> title=&quot;Video&quot;&gt;Video&lt;/a&gt;
 		</div>
 		
 		<h3 id="textlightbox">Show title and description in Lightbox</h3>
 		<p>To show a title, use attribute <code>title</code>.</p>
 		<p>To show a description, you need to enable the option <code>Show description</code> in the Lightbox Options page, then add data tag <code>data-description</code> to your link.</p>
-		<p>Live demo: <a href="<?php echo WONDERPLUGIN_LIGHTBOX_URL; ?>images/demo-image2.jpg" class="wplightbox" title="You can display a title." data-description="You can also display a description." >Lightbox with title and description</a></p>
+		<p>Live demo: <a href="https://www.wonderplugin.com/videos/demo-image2.jpg" class="wplightbox" title="You can display a title." data-description="You can also display a description." >Lightbox with title and description</a></p>
 		<p>Demo code:</p>
-		<div class="code">&lt;a href=&quot;<?php echo WONDERPLUGIN_LIGHTBOX_URL; ?>images/demo-image2.jpg&quot; <span>class=&quot;wplightbox&quot;</span> title=&quot;You can display a title.&quot; data-description=&quot;You can also display a description.&quot; &gt;Image Lightbox&lt;/a&gt;</div>
+		<div class="code">&lt;a href=&quot;https://www.wonderplugin.com/videos/demo-image2.jpg&quot; <span>class=&quot;wplightbox&quot;</span> title=&quot;You can display a title.&quot; data-description=&quot;You can also display a description.&quot; &gt;Image Lightbox&lt;/a&gt;</div>
 		
 		<h3 id="datatags">Customise the lightbox with data tags - display text on the right side of the lightbox</h3>
 		<p>You can change the lightbox options in the plugin menu -> Lightbox Options. The change will apply to all lightboxes on the website.</p>
@@ -504,7 +518,11 @@ class WonderPlugin_Lightbox_View {
 	&lt;div class=&quot;lightboxleft&quot;&gt;
 	  &lt;div class=&quot;divtext&quot;&gt;
 		&lt;p class=&quot;divtitle&quot; style=&quot;font-size:16px;font-weight:bold;margin:12px 0px;&quot;&gt;WonderPlugin Gallery&lt;/p&gt;
-		&lt;p class=&quot;divdescription&quot; style=&quot;font-size:14px;line-height:20px;&quot;&gt;WonderPlugin Gallery is a WordPress photo and video gallery plugin, and a great way to showcase your images and videos online. The plugin supports images, YouTube, Vimeo, Dailymotion, mp4 and webm videos. It's fully responsive, works on iPhone, iPad, Android, Firefox, Chrome, Safari, Opera and Internet Explorer 7/8/9/10/11.&lt;/p&gt;
+		&lt;p class=&quot;divdescription&quot; style=&quot;font-size:14px;line-height:20px;&quot;&gt;
+		WonderPlugin Gallery is a WordPress photo and video gallery plugin, and a great way to showcase your images and videos online. 
+		The plugin supports images, YouTube, Vimeo, Dailymotion, mp4 and webm videos. 
+		It's fully responsive, works on iPhone, iPad, Android, Firefox, Chrome, Safari, Opera and Internet Explorer 7/8/9/10/11.
+		&lt;/p&gt;
 	  &lt;/div&gt;
 	&lt;/div&gt;
 	&lt;div class=&quot;lightboxright&quot;&gt;
@@ -594,7 +612,11 @@ class WonderPlugin_Lightbox_View {
 			<div class="lightboxleft">
 			  <div class="divtext">
 				<p class="divtitle" style="font-size:16px;font-weight:bold;margin:12px 0px;">WonderPlugin Gallery</p>
-				<p class="divdescription" style="font-size:14px;line-height:20px;">WonderPlugin Gallery is a WordPress photo and video gallery plugin, and a great way to showcase your images and videos online. The plugin supports images, YouTube, Vimeo, Dailymotion, mp4 and webm videos. It's fully responsive, works on iPhone, iPad, Android, Firefox, Chrome, Safari, Opera and Internet Explorer 7/8/9/10/11.</p>
+				<p class="divdescription" style="font-size:14px;line-height:20px;">
+				WonderPlugin Gallery is a WordPress photo and video gallery plugin, and a great way to showcase your images and videos online. 
+				The plugin supports images, YouTube, Vimeo, Dailymotion, mp4 and webm videos. 
+				It's fully responsive, works on iPhone, iPad, Android, Firefox, Chrome, Safari, Opera and Internet Explorer 7/8/9/10/11.
+				</p>
 			  </div>
 			</div>
 			<div class="lightboxright">
@@ -679,7 +701,7 @@ class WonderPlugin_Lightbox_View {
 			$ret = $this->controller->check_license($_POST);
 			
 			if ($ret['status'] == 'valid')
-				echo '<div class="updated"><p>The key has been saved.</p></div>';
+				echo '<div class="updated"><p>The key has been saved.</p><p>WordPress caches the udpate information. If you still see the message "Automatic update is unavailable for this plugin", please wait for some time, then click the below button "Force WordPress To Check For Plugin Updates".</p></div>';
 			else if ($ret['status'] == 'expired')
 				echo '<div class="error"><p>Your free upgrade period has expired, please renew your license.</p></div>';
 			else if ($ret['status'] == 'invalid')

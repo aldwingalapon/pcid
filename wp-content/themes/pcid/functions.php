@@ -124,7 +124,7 @@ register_sidebar(array('id'=>'footer-menu','name'=>'Footer Menu','before_widget'
 
 // thumbnail support
 add_theme_support('post-thumbnails'); 
-add_image_size('medium-news-thumbnails', 400, 175, true);
+add_image_size('medium-news-thumbnails', 400, 300, true);
 
 add_filter( 'embed_oembed_html', 'custom_oembed_filter', 10, 4 ) ;
 
@@ -278,6 +278,19 @@ function the_breadcrumbs() {
 				wp_reset_postdata();
 			}
 			echo "<span class='sep'></span> <span class='single-video-".$post->ID."'>".get_the_title()."</span>";
+		} elseif (is_singular('publication')) {
+			echo " <span class='sep'></span> ";
+
+			$post_object = get_field('publications_page', 'option');
+			if( $post_object ){
+				$post = $post_object;
+				setup_postdata( $post ); 
+
+				echo "<span class='publications-page'><a href='".get_the_permalink()."'>" . get_the_title() . "</a></span>";
+
+				wp_reset_postdata();
+			}
+			echo "<span class='sep'></span> <span class='single-publication-".$post->ID."'>".get_the_title()."</span>";
 		} elseif (is_singular('story')) {
 			echo " <span class='sep'></span> ";
 
@@ -317,6 +330,22 @@ function the_breadcrumbs() {
 				wp_reset_postdata();
 			}
 			echo "<span class='sep'></span> <span class='single-press_release-".$post->ID."'>".get_the_title()."</span>";
+		} elseif (is_singular('personnel')) {
+			echo " <span class='sep'></span> ";
+
+			$terms = get_the_terms( get_the_ID(), 'personnel_type' ); 
+			foreach($terms as $term) {
+				$post_object = get_field('personnel_type_page', $term);
+				if( $post_object ){
+					$post = $post_object;
+					setup_postdata( $post ); 
+					$personnel_type_page = get_the_permalink();
+					wp_reset_postdata();
+				}
+				echo '<span class="personnel-page"><a href="' . $personnel_type_page . '" title="' . $term->name .'">' . $term->name . '</a></span> <span class="sep"></span> ';
+			}
+
+			echo '<span class="single-personnel-' . $post->ID . '">' . get_the_title() . '</span>';
 		} elseif (is_search()) {
 			echo " <span class='sep'></span> <span>Search results</span>"; 
 		} elseif (is_404()) {
@@ -572,9 +601,80 @@ class wp_bootstrap_navwalker extends Walker_Nav_Menu {
 add_filter( 'wp_nav_menu_items', 'utility_navigation_hamburger_menu_item', 10, 2 );
 function utility_navigation_hamburger_menu_item( $items, $args ) {
     if ($args->theme_location == 'utility_navigation') {
-        $items .= '<li class="search-menu-item" data-toggle="collapse" data-target="#menu_searchform"><i class="fa fa-search" aria-hidden="true"></i></li>';
+        $items .= '<li class="search-menu-item collapsed" data-toggle="collapse" data-target="#menu_searchform"><i class="fa fa-search" aria-hidden="true"><span class="utility_nav_item">Search</span></i></li>';
     }
     return $items;
+}
+
+add_action( 'init', 'cptui_register_my_cpts_personnel' );
+function cptui_register_my_cpts_personnel() {
+	$labels = array(
+		"name" => __( 'Personnels', 'pcid' ),
+		"singular_name" => __( 'Personnel', 'pcid' ),
+		"search_items" => __( 'Search Personnels', 'pcid' ),
+		"all_items" => __( 'All Personnels', 'pcid' ),
+		"edit_item" => __( 'Edit Personnel', 'pcid' ),
+		"update_item" => __( 'Update Personnel', 'pcid' ),
+		"add_new_item" => __( 'Add New Personnel', 'pcid' ),
+		"new_item_name" => __( 'New Personnel', 'pcid' ),
+		"menu_name" => __( 'Personnel', 'pcid' ),
+		);
+	$args = array(
+		"label" => __( 'Personnels', 'pcid' ),
+		"labels" => $labels,
+		"description" => "",
+		"public" => true,
+		"publicly_queryable" => true,
+		"show_ui" => true,
+		"show_in_rest" => false,
+		"rest_base" => "",
+		"has_archive" => false,
+		"show_in_menu" => true,
+				"exclude_from_search" => false,
+		"capability_type" => "post",
+		"map_meta_cap" => true,
+		"hierarchical" => false,
+		"rewrite" => array( "slug" => "personnel", "with_front" => true ),
+		"query_var" => true,
+		"menu_position" => 5,"menu_icon" => "dashicons-id-alt",
+		"supports" => array( "title", "thumbnail", "page-attributes" ),
+		"taxonomies" => array( "personnel_type" ),
+			);	register_post_type( "personnel", $args );
+// End of cptui_register_my_cpts_personnel()
+}
+add_action( 'init', 'cptui_register_my_taxes_personnel_type' );
+function cptui_register_my_taxes_personnel_type() {
+	$labels = array(
+		"name" => __( 'Personnel Type', 'pcid' ),
+		"singular_name" => __( 'Personnel Type', 'pcid' ),
+		"search_items" => __( 'Search Personnel Types', 'pcid' ),
+		"all_items" => __( 'All Personnel Types', 'pcid' ),
+		"parent_item" => __( 'Parent Personnel Type', 'pcid' ),
+		"parent_item_colon" => __( 'Parent Personnel Type:', 'pcid' ),
+		"edit_item" => __( 'Edit Personnel Type', 'pcid' ),
+		"update_item" => __( 'Update Personnel Type', 'pcid' ),
+		"add_new_item" => __( 'Add New Personnel Type', 'pcid' ),
+		"new_item_name" => __( 'New Personnel Type', 'pcid' ),
+		"menu_name" => __( 'Personnel Type', 'pcid' ),
+		);
+	$args = array(
+		"label" => __( 'Personnel Type', 'pcid' ),
+		"labels" => $labels,
+		"public" => true,
+		"hierarchical" => true,
+		"label" => "Personnel Type",
+		"show_ui" => true,
+		"show_in_menu" => true,
+		"show_in_nav_menus" => true,
+		"query_var" => true,
+		"rewrite" => array( 'slug' => 'personnel_type', 'with_front' => true, ),
+		"show_admin_column" => false,
+		"show_in_rest" => false,
+		"rest_base" => "",
+		"show_in_quick_edit" => false,
+	);
+	register_taxonomy( "personnel_type", array( "personnel" ), $args );
+// End cptui_register_my_taxes_personnel_type()
 }
 
 add_action( 'init', 'cptui_register_my_cpts_news' );
@@ -610,7 +710,7 @@ function cptui_register_my_cpts_news() {
 		"query_var" => true,
 		"menu_position" => 5,"menu_icon" => "dashicons-media-document",
 		"supports" => array( "title", "editor", "thumbnail", "page-attributes", "excerpt" ),		
-		"taxonomies" => array( "department", "category", "post_tag" ),
+		"taxonomies" => array( "category", "post_tag" ),
 			);
 	register_post_type( "story", $args );
 
@@ -620,19 +720,19 @@ function cptui_register_my_cpts_news() {
 add_action( 'init', 'cptui_register_my_cpts_press_release' );
 function cptui_register_my_cpts_press_release() {
 	$labels = array(
-		"name" => __( 'Announcements & Press Releases', 'pcid' ),
-		"singular_name" => __( 'Announcements & Press Releases', 'pcid' ),
-		"search_items" => __( 'Search Announcements & Press Releases', 'pcid' ),
-		"all_items" => __( 'All Announcements & Press Releases', 'pcid' ),
-		"edit_item" => __( 'Edit Announcements & Press Releases', 'pcid' ),
-		"update_item" => __( 'Update Announcements & Press Releases', 'pcid' ),
-		"add_new_item" => __( 'Add New Announcements & Press Releases', 'pcid' ),
-		"new_item_name" => __( 'New Announcements & Press Releases', 'pcid' ),
-		"menu_name" => __( 'Announcements & Press Releases', 'pcid' ),
+		"name" => __( 'Reports & Statements', 'pcid' ),
+		"singular_name" => __( 'Reports & Statements', 'pcid' ),
+		"search_items" => __( 'Search Reports & Statements', 'pcid' ),
+		"all_items" => __( 'All Reports & Statements', 'pcid' ),
+		"edit_item" => __( 'Edit Reports & Statements', 'pcid' ),
+		"update_item" => __( 'Update Reports & Statements', 'pcid' ),
+		"add_new_item" => __( 'Add Reports & Statements', 'pcid' ),
+		"new_item_name" => __( 'New Reports & Statements', 'pcid' ),
+		"menu_name" => __( 'Reports & Statements', 'pcid' ),
 		);
 
 	$args = array(
-		"label" => __( 'Announcements & Press Releases', 'pcid' ),
+		"label" => __( 'Reports & Statements', 'pcid' ),
 		"labels" => $labels,
 		"description" => "",
 		"public" => true,
@@ -650,7 +750,7 @@ function cptui_register_my_cpts_press_release() {
 		"query_var" => true,
 		"menu_position" => 5,"menu_icon" => "dashicons-megaphone",
 		"supports" => array( "title", "editor", "thumbnail", "page-attributes", "excerpt" ),		
-		"taxonomies" => array( "department", "category", "post_tag" ),
+		"taxonomies" => array( "category", "post_tag" ),
 			);
 	register_post_type( "press_release", $args );
 
@@ -690,7 +790,7 @@ function cptui_register_my_cpts_event() {
 		"query_var" => true,
 		"menu_position" => 5,"menu_icon" => "dashicons-calendar-alt",
 		"supports" => array( "title", "editor", "thumbnail", "page-attributes", "excerpt" ),		
-		"taxonomies" => array( "department", "category", "post_tag" ),
+		"taxonomies" => array( "category", "post_tag" ),
 			);
 	register_post_type( "event", $args );
 
@@ -732,6 +832,46 @@ function cptui_register_my_cpts_video() {
 		"taxonomies" => array( "category", "post_tag" ),
 			);	register_post_type( "video", $args );
 // End of cptui_register_my_cpts_video()
+}
+
+add_action( 'init', 'cptui_register_my_cpts_publication' );
+function cptui_register_my_cpts_publication() {
+	$labels = array(
+		"name" => __( 'Publications', 'pcid' ),
+		"singular_name" => __( 'Publication', 'pcid' ),
+		"search_items" => __( 'Search Publications', 'pcid' ),
+		"all_items" => __( 'All Publications', 'pcid' ),
+		"edit_item" => __( 'Edit Publication', 'pcid' ),
+		"update_item" => __( 'Update Publication', 'pcid' ),
+		"add_new_item" => __( 'Add New Publication', 'pcid' ),
+		"new_item_name" => __( 'New Publication', 'pcid' ),
+		"menu_name" => __( 'Publications', 'pcid' ),
+		);
+
+	$args = array(
+		"label" => __( 'Publications', 'pcid' ),
+		"labels" => $labels,
+		"description" => "",
+		"public" => true,
+		"publicly_queryable" => true,
+		"show_ui" => true,
+		"show_in_rest" => false,
+		"rest_base" => "",
+		"has_archive" => false,
+		"show_in_menu" => true,
+				"exclude_from_search" => false,
+		"capability_type" => "post",
+		"map_meta_cap" => true,
+		"hierarchical" => false,
+		"rewrite" => array( "slug" => "publication", "with_front" => true ),
+		"query_var" => true,
+		"menu_position" => 5,"menu_icon" => "dashicons-portfolio",
+		"supports" => array( "title", "thumbnail", "page-attributes"),		
+		"taxonomies" => array( "category", "post_tag" ),
+			);
+	register_post_type( "publication", $args );
+
+// End of cptui_register_my_cpts_publication()
 }
 
 add_action( 'init', 'cptui_register_my_cpts_slider' );
@@ -822,6 +962,346 @@ interface Share_Counter {
   public static function get_share_count( $url );
   
 }
+
+/*	Custom Widgets	*/
+class pcid_search_widget extends WP_Widget {
+	public function __construct() {
+		$widget_ops = array(
+			'classname' => 'pcid_search_widget',
+			'description' => 'Custom widget for PCID custom search.'
+		);
+		parent::__construct( 'pcid_search_widget', 'PCID Custom Search Widget', $widget_ops );
+	}
+	function form($instance) {
+		$title   = esc_attr( isset( $instance['title'] ) ? $instance['title'] : 'Search' );
+		$placeholder   = esc_attr( isset( $instance['placeholder'] ) ? $instance['placeholder'] : 'Search PCID website' );
+		$posttype = esc_attr( isset( $instance['posttype'] ) ? $instance['posttype'] : 'All' );
+?>
+		<p>
+			<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?>
+				<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo $title; ?>" />
+			</label>
+		</p>
+		<p>
+			<label for="<?php echo $this->get_field_id( 'placeholder' ); ?>"><?php _e( 'Search input placeholder:' ); ?>
+				<input class="widefat" id="<?php echo $this->get_field_id( 'placeholder' ); ?>" name="<?php echo $this->get_field_name( 'placeholder' ); ?>" type="text" value="<?php echo $placeholder; ?>" />
+			</label>
+		</p>
+		<p>
+			<label for="<?php echo $this->get_field_id('posttype'); ?>"><?php _e('Post Type to search:'); ?></label>
+			<select id="<?php echo $this->get_field_id('posttype'); ?>"  name="<?php echo $this->get_field_name('posttype'); ?>">
+				<?php $this->getPostTypes($posttype); ?>
+			</select>
+		</p>
+<?php
+	}
+	function update($new_instance, $old_instance) {
+		$instance = $old_instance;
+		// Fields
+		$instance['title'] = strip_tags($new_instance['title']);
+		$instance['placeholder'] = strip_tags($new_instance['placeholder']);
+		$instance['posttype'] = strip_tags($new_instance['posttype']);
+		return $instance;
+	}
+	function widget($args, $instance) {
+		extract( $args );
+		$title = apply_filters('widget_title', $instance['title']);
+		$placeholder = apply_filters('widget_title', $instance['placeholder']);
+		$posttype = apply_filters('widget_title', $instance['posttype']);
+		echo $before_widget;
+		echo '<div class="pcidsearchwidget">';
+		if($title){
+			echo '<div class="pcidsearchtitle">' . $before_title . $title . $after_title . '</div>';
+		}
+		if($posttype){
+			echo '<form method="get" class="customsearchform-' . $posttype . '" id="customsearchform" action="' . get_bloginfo('home') . '/"><input type="text" value="" name="s" id="s" ' . ($placeholder ? ' placeholder="' . $placeholder . '"' : '') . ' /><input type="hidden" name="search-type" value="' . $posttype . '" /><input name="submit" type="submit" value="Go" /></form>';
+		}
+		echo '</div>';
+		echo $after_widget;
+	}
+	function getPostTypes($type){
+		echo '<option ' . (('all' == $type) ? 'selected="selected"' : '') . ' value="all">all</option>';
+		foreach ( get_post_types( array('public' => true, 'publicly_queryable' => true, 'exclude_from_search' => false), 'names' ) as $post_type ) {
+			if($post_type !== 'attachment'){
+				echo '<option ' . (($post_type == $type) ? 'selected="selected"' : '') . ' value="'.$post_type.'">'.$post_type.'</option>';
+			}
+		}	
+	}
+}
+class pcid_categories_widget extends WP_Widget {
+	public function __construct() {
+		$widget_ops = array(
+			'classname' => 'pcid_categories_widget',
+			'description' => 'Custom widget for PCID post categories.'
+		);
+		parent::__construct( 'pcid_categories_widget', 'PCID Posts Category Widget', $widget_ops );
+	}
+	function form($instance) {
+		$title   = esc_attr( isset( $instance['title'] ) ? $instance['title'] : 'Blog Category' );
+		$num = esc_attr( isset( $instance['num'] ) ? $instance['num'] : '5' );
+?>
+		<p>
+			<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?>
+				<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo $title; ?>" />
+			</label>
+		</p>
+		<p>
+			<label for="<?php echo $this->get_field_id('num'); ?>"><?php _e('Number of Categories to initially show:'); ?></label>
+			<select id="<?php echo $this->get_field_id('num'); ?>"  name="<?php echo $this->get_field_name('num'); ?>">
+				<?php for($x=1;$x<=$this->getCategoryCount();$x++): ?>
+				<option <?php echo $x == $num ? 'selected="selected"' : '';?> value="<?php echo $x;?>"><?php echo $x; ?></option>
+				<?php endfor;?>
+			</select>
+		</p>
+<?php
+	}
+	function update($new_instance, $old_instance) {
+		$instance = $old_instance;
+		// Fields
+		$instance['title'] = strip_tags($new_instance['title']);
+		$instance['num'] = strip_tags($new_instance['num']);
+		return $instance;
+	}
+	function widget($args, $instance) {
+		extract( $args );
+		$title = apply_filters('widget_title', $instance['title']);
+		$num = apply_filters('widget_title', $instance['num']);
+		echo $before_widget;
+		echo '<div class="blogcategorywidget">';
+		if($title){
+			echo '<div class="blogcategorytitle">' . $before_title . '<span>' . $title . '</span>' . $after_title . '</div>';
+		}
+		if($num){
+			$this->getCategories($num);
+		}
+		echo '</div>';
+		echo $after_widget;
+	}
+	function getCategoryCount(){
+		$categories = get_categories();
+		return count($categories);
+	}
+	function getCategories($num){
+		global $post;
+		$ID = $post->ID;
+		$cur_cat_id = get_cat_id( single_cat_title("",false) );
+		$categories = get_categories();
+		$num2 = count($categories);
+		$more = $num2 - $num;
+		$count = 0;
+		if(count($categories)>0){
+			echo '<form class="categoryform">';
+			$post_object = get_field('blogs_page', 'option');
+			if( $post_object ){
+				$post = $post_object;
+				setup_postdata( $post ); 
+				echo '<p class="categoryitem-recent odd"><input id="recent" type="radio" name="categoryitem" value="' . get_the_permalink($post->ID) . '" ' . ($post->ID==$ID ? ' checked' : '') . ' onclick = "document.location.href=\'' . get_the_permalink($post->ID) . '\'" /><label for="recent">Most Recent</label></p>';
+				wp_reset_postdata();
+			}
+			foreach ($categories as $cat) {
+				$count += 1;
+				if((($count - 1) == $num) && ($more>0)){
+					echo '<div class="collapse" id="morecontent">';
+				}
+				echo '<p class="categoryitem-'. $count . ((($count + 1) % 2 == 0) ? ' even' : ' odd') .'"><input id="category-' . $cat->cat_ID . '" type="radio" name="categoryitem" value="' . get_category_link($cat->cat_ID) . '" ' . ($cat->cat_ID==$cur_cat_id ? ' checked' : '') . ' onclick = "document.location.href=\'' . get_category_link($cat->cat_ID) . '\'" /><label for="category-' . $cat->cat_ID . '">'. $cat->name. '</label></p>';
+			}
+			if($more>0){
+				$count += 1;
+				echo '</div><p class="categoryitem-more categoryitem-'. $count . ((($count + 1) % 2 == 0) ? ' even' : ' odd') .'"><a href="#morecontent"  data-toggle="collapse" class="collapsed"><span class="see-more">See ' . $more . ' more</span></a></p>';
+			}
+			echo '</form>';
+		}
+	}
+}
+class pcid_recent_news_widget extends WP_Widget {
+	public function __construct() {
+		$widget_ops = array(
+			'classname' => 'pcid_recent_news_widget',
+			'description' => 'Custom widget for PCID recent posts.'
+		);
+		parent::__construct( 'pcid_recent_news_widget', 'PCID Recent Posts Widget', $widget_ops );
+	}
+	function form($instance) {
+		$title   = esc_attr( isset( $instance['title'] ) ? $instance['title'] : 'Recent Posts' );
+		$posttype = esc_attr( isset( $instance['posttype'] ) ? $instance['posttype'] : 'All' );
+		$num = esc_attr( isset( $instance['num'] ) ? $instance['num'] : '' );
+?>
+		<p>
+			<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?>
+				<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo $title; ?>" />
+			</label>
+		</p>
+		<p>
+			<label for="<?php echo $this->get_field_id('posttype'); ?>"><?php _e('Post Type display:'); ?></label>
+			<select id="<?php echo $this->get_field_id('posttype'); ?>"  name="<?php echo $this->get_field_name('posttype'); ?>">
+				<?php $this->getPostTypes($posttype); ?>
+			</select>
+		</p>
+		<p>
+			<label for="<?php echo $this->get_field_id('num'); ?>"><?php _e('Number of Recent Posts to display:'); ?></label>
+			<select id="<?php echo $this->get_field_id('num'); ?>"  name="<?php echo $this->get_field_name('num'); ?>">
+				<?php for($x=1;$x<=10;$x++): ?>
+				<option <?php echo $x == $num ? 'selected="selected"' : '';?> value="<?php echo $x;?>"><?php echo $x; ?></option>
+				<?php endfor;?>
+			</select>
+		</p>
+<?php
+	}
+	function update($new_instance, $old_instance) {
+		$instance = $old_instance;
+		// Fields
+		$instance['title'] = strip_tags($new_instance['title']);
+		$instance['posttype'] = strip_tags($new_instance['posttype']);
+		$instance['num'] = strip_tags($new_instance['num']);
+		return $instance;
+	}
+	function widget($args, $instance) {
+		extract( $args );
+		$title = apply_filters('widget_title', $instance['title']);
+		$posttype = apply_filters('widget_title', $instance['posttype']);
+		$num = apply_filters('widget_title', $instance['num']);
+		echo $before_widget;
+		echo '<div class="recentnewswidget">';
+		if($title){
+			echo '<div class="recentnewstitle">' . $before_title . '<span>' . $title . '</span>' . $after_title . '</div>';
+		}
+		if($num && $posttype){
+			$this->getRecentNews($num, $posttype);
+		}
+		echo '</div>';
+		echo $after_widget;
+	}
+	function getPostTypes($type){
+		echo '<option ' . (('all' == $type) ? 'selected="selected"' : '') . ' value="all">all</option>';
+		foreach ( get_post_types( array('public' => true, 'publicly_queryable' => true, 'exclude_from_search' => false), 'names' ) as $post_type ) {
+			if($post_type !== 'attachment'){
+				echo '<option ' . (($post_type == $type) ? 'selected="selected"' : '') . ' value="'.$post_type.'">'.$post_type.'</option>';
+			}
+		}	
+	}
+	function getRecentNews($num, $post_type) {
+		global $post;
+		$recentnews = $wp_query;
+		$wp_query= null;
+		$wp_query = new WP_Query();
+		$wp_query->query('post_type=' . $post_type . '&orderby=date&order=desc&showposts=' . $num);
+		if ($wp_query->have_posts()) : $item = 0;
+			echo '<ul class="recent-news-list">';
+			while ($wp_query->have_posts()) : $wp_query->the_post();
+				$item++;
+				$id = get_the_ID();
+				echo '<li class="news-item news-item-' . $item . ' news-item-post-id-' . $id . '"><a href="' . get_permalink($id) . '"  title="'.get_the_title().'" rel="bookmark">';
+				if ( has_post_thumbnail() ) {
+					$image_url = wp_get_attachment_image_src( get_post_thumbnail_id($id), 'medium' );
+					echo '<span class="news-image"><div class="icon lazy-image" data-src="'. $image_url[0] . '" data-title="' . get_the_title() . '" title="' . get_the_title() . '"></div></span>';
+				} else {
+					echo '<span class="news-image"><div class="icon lazy-image no-image" data-src="" data-title="' . get_the_title() . '" title="' . get_the_title() . '"></div></span>';
+				}
+				echo '<span class="news-title">' . get_the_title() . '</span></a></li>';
+			endwhile;
+			echo '</ul>';
+		else : 
+		endif; $wp_query = null; $wp_query = $recentnews;
+	}
+}
+class pcid_popular_posts_widget extends WP_Widget {
+	public function __construct() {
+		$widget_ops = array(
+			'classname' => 'pcid_popular_posts_widget',
+			'description' => 'Custom widget for PCID popular posts.'
+		);
+		parent::__construct( 'pcid_popular_posts_widget', 'PCID Popular Posts Widget', $widget_ops );
+	}
+	function form($instance) {
+		$title   = esc_attr( isset( $instance['title'] ) ? $instance['title'] : 'Popular Posts' );
+		$posttype = esc_attr( isset( $instance['posttype'] ) ? $instance['posttype'] : 'All' );
+		$num = esc_attr( isset( $instance['num'] ) ? $instance['num'] : '' );
+?>
+		<p>
+			<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?>
+				<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo $title; ?>" />
+			</label>
+		</p>
+		<p>
+			<label for="<?php echo $this->get_field_id('posttype'); ?>"><?php _e('Post Type display:'); ?></label>
+			<select id="<?php echo $this->get_field_id('posttype'); ?>"  name="<?php echo $this->get_field_name('posttype'); ?>">
+				<?php $this->getPostTypes($posttype); ?>
+			</select>
+		</p>
+		<p>
+			<label for="<?php echo $this->get_field_id('num'); ?>"><?php _e('Number of Popular Posts to display:'); ?></label>
+			<select id="<?php echo $this->get_field_id('num'); ?>"  name="<?php echo $this->get_field_name('num'); ?>">
+				<?php for($x=1;$x<=10;$x++): ?>
+				<option <?php echo $x == $num ? 'selected="selected"' : '';?> value="<?php echo $x;?>"><?php echo $x; ?></option>
+				<?php endfor;?>
+			</select>
+		</p>
+<?php
+	}
+	function update($new_instance, $old_instance) {
+		$instance = $old_instance;
+		// Fields
+		$instance['title'] = strip_tags($new_instance['title']);
+		$instance['posttype'] = strip_tags($new_instance['posttype']);
+		$instance['num'] = strip_tags($new_instance['num']);
+		return $instance;
+	}
+	function widget($args, $instance) {
+		extract( $args );
+		$title = apply_filters('widget_title', $instance['title']);
+		$posttype = apply_filters('widget_title', $instance['posttype']);
+		$num = apply_filters('widget_title', $instance['num']);
+		echo $before_widget;
+		echo '<div class="popularpostswidget">';
+		if($title){
+			echo '<div class="popularpoststitle">' . $before_title . '<span>' . $title . '</span>' . $after_title . '</div>';
+		}
+		if($num && $posttype){
+			$this->getPopularPosts($num, $posttype);
+		}
+		echo '</div>';
+		echo $after_widget;
+	}
+	function getPostTypes($type){
+		echo '<option ' . (('all' == $type) ? 'selected="selected"' : '') . ' value="all">all</option>';
+		foreach ( get_post_types( array('public' => true, 'publicly_queryable' => true, 'exclude_from_search' => false), 'names' ) as $post_type ) {
+			if($post_type !== 'attachment'){
+				echo '<option ' . (($post_type == $type) ? 'selected="selected"' : '') . ' value="'.$post_type.'">'.$post_type.'</option>';
+			}
+		}	
+	}
+	function getPopularPosts($num, $post_type) {
+		global $post;
+		$popularposts = $wp_query;
+		$wp_query= null;
+		$wp_query = new WP_Query();
+		$wp_query->query('post_type=' . $post_type . '&meta_key=pcid_post_views_count&orderby=meta_value_num&order=desc&showposts=' . $num);
+		if ($wp_query->have_posts()) : $item = 0;
+			echo '<ul class="popular-post-list">';
+			while ($wp_query->have_posts()) : $wp_query->the_post();
+				$item++;
+				$id = get_the_ID();
+				echo '<li class="popular-item popular-item-' . $item . ' popular-item-post-id-' . $id . '"><a href="' . get_permalink($id) . '"  title="'.get_the_title().'" rel="bookmark">';
+				if ( has_post_thumbnail() ) {
+					$image_url = wp_get_attachment_image_src( get_post_thumbnail_id($id), 'medium' );
+					echo '<span class="post-image"><div class="icon lazy-image" data-src="'. $image_url[0] . '" data-title="' . get_the_title() . '" title="' . get_the_title() . '"></div></span>';
+				} else {
+					echo '<span class="post-image"><div class="icon lazy-image no-image" data-src="" data-title="' . get_the_title() . '" title="' . get_the_title() . '"></div></span>';
+				}
+				echo '<span class="post-title">' . get_the_title() . '</span></a></li>';
+			endwhile;
+			echo '</ul>';
+		else : 
+		endif; $wp_query = null; $wp_query = $popularposts;
+	}
+}
+function load_pcid_widgets(){
+	register_widget("pcid_search_widget");
+	register_widget("pcid_categories_widget");
+	register_widget("pcid_recent_news_widget");
+	register_widget("pcid_popular_posts_widget");
+}
+add_action( 'widgets_init', 'load_pcid_widgets' );
 
 /**
  * Facebook Shares
@@ -928,6 +1408,97 @@ class StumbleUponShareCount implements Share_Counter {
 		$share_count = intval( $encoded_response['result']['views'] ); 
 		return $share_count;
 	}
+}
+
+function end_prev_letter() {
+   end_prev_row();
+   echo "</div><!-- End of letter-group -->\n";
+   echo "<div class='clear clearfix'></div>\n";
+}
+function start_new_letter($letter) {
+   echo "<div class='letter-group row'>\n";
+   echo "\t<div class='letter-cell'>$letter</div>\n";
+   start_new_row($letter);
+}
+function end_prev_row() {
+   echo "\t</div><!-- End row-cells -->\n";
+}
+function start_new_row() {
+   global $in_this_row;
+   $in_this_row = 0;
+   echo "\t<div class='row-cells'>\n";
+}
+function pcid_create_glossary_taxonomy(){
+    if(!taxonomy_exists('directory')){
+        register_taxonomy('directory',array('faculty', 'personnel'),array(
+            'show_ui' => false,
+            'name' => 'Directory',
+            'label' => 'Directory'
+        ));
+    }
+}
+add_action('init','pcid_create_glossary_taxonomy');
+/* When the post is saved, saves our custom data */
+function pcid_save_first_letter( $post_id ) {
+    // verify if this is an auto save routine.
+    // If it is our form has not been submitted, so we dont want to do anything
+    if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE )
+        return $post_id;
+    //check location (only run for posts)
+    $limitPostTypes = array('faculty', 'personnel');
+    if (!in_array($_POST['post_type'], $limitPostTypes)) 
+        return $post_id;
+    // Check permissions
+    if ( !current_user_can( 'edit_post', $post_id ) )
+        return $post_id;
+    // OK, we're authenticated: we need to find and save the data
+    $taxonomy = 'directory';
+    //set term as first letter of post title, lower case
+    if(get_field('last_name',$post_id) ){
+	$last_name = get_field('last_name',$post_id);
+        wp_set_post_terms( $post_id, strtolower(substr($last_name, 0, 1)), $taxonomy );
+    }
+    //wp_set_post_terms( $post_id, strtolower(substr($_POST['post_title'], 0, 1)), $taxonomy );
+    //delete the transient that is storing the alphabet letters
+    delete_transient( 'pcid_archive_alphabet');
+}
+add_action( 'save_post', 'pcid_save_first_letter' );
+//create array from existing posts
+function pcid_run_once(){
+    if ( false === get_transient( 'pcid_run_once' ) ) {
+        $taxonomy = 'directory';
+        $alphabet = array();
+        $posts = get_posts(array('numberposts' => -1) );
+        foreach( $posts as $p ) :
+        //set term as first letter of post title, lower case
+	if(get_field('last_name',$p->ID) ){
+		$last_name = get_field('last_name',$p->ID);
+	        wp_set_post_terms( $p->ID, strtolower(substr($last_name, 0, 1)), $taxonomy );
+	}
+        endforeach;
+        set_transient( 'pcid_run_once', 'true' );
+    }
+}
+add_action('init','pcid_run_once');
+function pcid_add_custom_types( $query ) {
+    if( is_tax() && $query->is_main_query() ) {
+        // this gets all post types:
+        $post_types = get_post_types();
+        // alternately, you can add just specific post types using this line instead of the above:
+        // $post_types = array( 'post', 'your_custom_type' );
+        $query->set( 'post_type', $post_types );
+    }
+}
+add_filter( 'pre_get_posts', 'pcid_add_custom_types' );
+function pcid_mime_types($mime_types){
+    $mime_types['vcf'] = 'text/x-vcard';
+    return $mime_types;
+}
+add_filter('upload_mimes', 'pcid_mime_types', 1, 1);
+add_action('init', 'custom_taxonomy_flush_rewrite');
+function custom_taxonomy_flush_rewrite() {
+    global $wp_rewrite;
+    $wp_rewrite->flush_rules();
 }
 
 ?>

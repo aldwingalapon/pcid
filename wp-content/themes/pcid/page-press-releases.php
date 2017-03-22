@@ -1,6 +1,6 @@
 <?php  
 /**
- * Template Name: Announcements and Press Releases
+ * Template Name: Statements & Reports
  *
  */
 ?>
@@ -24,9 +24,9 @@
 					<div class="row">
 						<div class="col-md-8 article">
 							<?php if(get_field('hide_content_title', $the_ID)) { ?>
-								<?php echo ( get_field('show_content_title', $the_ID ) ? '<h2 class="article-title">' . get_field('content_title', $the_ID ) . '<span class="edit-link">' . edit_post_link('Edit this article', ' | ', '') . '</span></h2>' : '' ); ?>
+								<?php echo ( get_field('show_content_title', $the_ID ) ? '<h2 class="article-title">' . get_field('content_title', $the_ID ) . '<span class="edit-link">' . edit_post_link('Edit this page', ' | ', '') . '</span></h2>' : '' ); ?>
 							<?php } else { ?>
-								<h2 class="article-title"><?php echo get_the_title(); ?><span class="edit-link"><?php edit_post_link('Edit this article', ' | ', ''); ?></span></h2>
+								<h2 class="article-title"><?php echo get_the_title(); ?><span class="edit-link"><?php edit_post_link('Edit this page', ' | ', ''); ?></span></h2>
 							<?php } ?>
 							<?php the_content(); ?>
 							<div class="row">

@@ -32,6 +32,22 @@ function fb_opengraph() {
 }
 add_action('wp_head', 'fb_opengraph', 5);
 
+function pcid_searchfilter($query) {
+    if ($query->is_search && !is_admin() ) {
+        $query->set('post_type',array('post','story','event','press_release','video','publication','personnel'));
+    }
+return $query;
+}
+add_filter('pre_get_posts','pcid_searchfilter');
+
+function pcid_query_post_type($query) {
+  if($query->is_main_query()
+    && ( is_category() || is_tag() )) {
+        $query->set( 'post_type', array('post','story','event','press_release','video','publication','personnel') );
+  }
+}
+add_filter('pre_get_posts', 'pcid_query_post_type');
+
 /*	@desc attach custom admin login CSS file	*/
 function custom_login_css() {
   echo '<link rel="stylesheet" type="text/css" href="'.get_stylesheet_directory_uri().'/login.css" />';
@@ -109,6 +125,7 @@ if (function_exists( 'register_nav_menus')) {register_nav_menus(array('primary_n
 
 if ( function_exists('register_sidebar') )
 register_sidebar(array('id'=>'default-sidebar','name'=>'Default Sidebar','before_widget' => '<span id="%1$s" class="widget %2$s">','after_widget' => '</span>','before_title' => '<h2 class="widgettitle">','after_title' => '</h2>',));
+register_sidebar(array('id'=>'default-banner-sidebar','name'=>'Default Banner Sidebar','before_widget' => '<span id="%1$s" class="widget %2$s">','after_widget' => '</span>','before_title' => '<h2 class="widgettitle">','after_title' => '</h2>',));
 register_sidebar(array('id'=>'default-news-sidebar','name'=>'Default News Sidebar','before_widget' => '<span id="%1$s" class="widget %2$s">','after_widget' => '</span>','before_title' => '<h2 class="widgettitle">','after_title' => '</h2>',));
 register_sidebar(array('id'=>'default-articles-sidebar','name'=>'Default Articles Sidebar','before_widget' => '<span id="%1$s" class="widget %2$s">','after_widget' => '</span>','before_title' => '<h2 class="widgettitle">','after_title' => '</h2>',));
 register_sidebar(array('id'=>'default-events-sidebar','name'=>'Default Events Sidebar','before_widget' => '<span id="%1$s" class="widget %2$s">','after_widget' => '</span>','before_title' => '<h2 class="widgettitle">','after_title' => '</h2>',));
@@ -233,26 +250,34 @@ function the_breadcrumbs() {
 	if (!is_home()) {
 		echo "<span><a href='".get_option('home')."'>Home</a></span>";
 
-		if (is_category() || is_singular( 'post' )) {
-			echo " <span class='sep'></span> ";
+		if (is_singular( 'post' )) {
 
-			$post_object = get_field('blogs_page', 'option');
-			if( $post_object ){
-				$post = $post_object;
-				setup_postdata( $post ); 
+			$terms = wp_get_post_terms(get_the_ID(), 'category', array("fields" => "all"));
+			foreach($terms as $term) {
+				$post_object = get_field('main_blog_page', $term);
+				if( $post_object ){
+					$post = $post_object;
+					setup_postdata( $post ); 
 
-				echo "<span class='post'><a href='".get_the_permalink()."'>" . get_the_title() . "</a></span>";
+					if($post->post_parent){
+						$anc = get_post_ancestors( $post->ID );
+						krsort($anc);
+						//$anc_link = get_page_link( $post->post_parent );
 
-				wp_reset_postdata();
+						foreach ( $anc as $ancestor ) {
+							echo " <span class='sep'></span> <span><a href=" . get_page_link( $ancestor ) . ">".get_the_title($ancestor)."</a></span> ";
+						}
+
+						echo " <span class='sep'></span> <span><a href=" . get_page_link( $post->ID ) . ">".get_the_title($post->ID)."</a></span>";
+					} else {
+						echo " <span class='sep'></span> <span><a href=" . get_page_link( $post->ID ) . ">".get_the_title($post->ID)."</a></span>";
+					}
+					
+					wp_reset_postdata();
+				}
 			}
 
-			if (is_category()) {
-				echo " <span class='sep'></span> <span class='single-category'>".single_cat_title( '', false )."</span>";
-			}
-
-			if (is_singular( 'post' )) {
-				echo " <span class='sep'></span> <span class='single-post-".$post->ID."'>".get_the_title()."</span>";
-			}
+			echo " <span class='sep'></span> <span class='single-post-".$post->ID."'>".get_the_title()."</span>";
 		} elseif (is_page()) {
 			if($post->post_parent){
 				$anc = get_post_ancestors( $post->ID );
@@ -353,6 +378,8 @@ function the_breadcrumbs() {
 		} elseif (is_tag()) {
 			$current_tag = single_tag_title("", false);
 			echo " <span class='sep'></span> <span>Tag Archive: ".$current_tag."</span>";
+		} elseif (is_category()) {
+			echo " <span class='sep'></span> <span class='single-category'>Category Archive: ".single_cat_title( '', false )."</span>";
 		} elseif (is_author()) {
 			echo " <span class='sep'></span> <span>".get_the_author_meta('display_name')."</span>";
 		}

@@ -220,7 +220,7 @@
 											$args = array(
 												'post__not_in' => $firstPosts,
 												'posts_per_page' => 6,
-												'post_type' =>	array('story', 'press_release'),
+												'post_type' =>	array('story'),
 												'status'	=>	'publish',
 												'orderby'	=>	'date',
 												'order'	=>	'DESC'

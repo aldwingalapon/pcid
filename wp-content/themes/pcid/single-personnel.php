@@ -25,9 +25,9 @@
 					<div class="row">
 						<div class="col-md-8 article">
 							<?php if(get_field('hide_content_title', $the_ID)) { ?>
-								<?php echo ( get_field('show_content_title', $the_ID ) ? '<h2 class="article-title">' . get_field('content_title', $the_ID ) . '<span class="edit-link">' . '<a href="' . get_edit_post_link($the_ID) . '" title="Edit this personnel profile" class="post-edit-link">Edit this personnel profile</a>' . ' | <a href="' . add_query_arg(array('post_type'=>'personnel'),admin_url('post-new.php')) . '" title="Add new personnel" class="post-add-link">Add new personnel</a></span></h2>' : '' ); ?>
+								<?php echo ( get_field('show_content_title', $the_ID ) ? '<h2 class="article-title">' . get_field('content_title', $the_ID ) . '<span class="edit-link">' . '<a href="' . get_edit_post_link($the_ID) . '" title="Edit this personnel profile" class="post-edit-link">Edit this personnel profile</a>' . (( current_user_can('edit_posts') ) ? ' | <a href="' . add_query_arg(array('post_type'=>'personnel'),admin_url('post-new.php')) . '" title="Add new personnel" class="post-add-link">Add new personnel</a>' : '') . '</span></h2>' : '' ); ?>
 							<?php } else { ?>
-								<h2 class="article-title"><?php echo get_the_title(); ?><span class="edit-link"><?php edit_post_link('Edit this personnel profile', ' | ', ''); ?><?php echo ' | <a href="' . add_query_arg(array('post_type'=>'faculty'),admin_url('post-new.php')) . '" title="Add new personnel" class="post-add-link">Add new personnel</a>'; ?></span></h2>
+								<h2 class="article-title"><?php echo get_the_title(); ?><span class="edit-link"><?php edit_post_link('Edit this personnel profile', ' | ', ''); ?><?php echo (( current_user_can('edit_posts') ) ? ' | <a href="' . add_query_arg(array('post_type'=>'faculty'),admin_url('post-new.php')) . '" title="Add new personnel" class="post-add-link">Add new personnel</a>' : ''); ?></span></h2>
 							<?php } ?>
 							<div class="post-data">
 								<span class="post-details">

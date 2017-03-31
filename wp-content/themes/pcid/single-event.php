@@ -153,9 +153,9 @@ $(document).ready(function(){
 						?>
 						<div class="col-md-8 article">
 							<?php if(get_field('hide_content_title', $the_ID)) { ?>
-								<?php echo ( get_field('show_content_title', $the_ID ) ? '<h2 class="article-title"><span class="pre-title"><a href="' . $news_page_link . '" title="' . $news_page_title . '">' . $news_page_title . '</a></span>' . get_field('content_title', $the_ID ) . '<span class="edit-link">' . edit_post_link('Edit this event', ' | ', '') . ' | <a href="' . add_query_arg(array('post_type'=>'event'),admin_url('post-new.php')) . ' title="Add new event" class="post-add-link">Add new event</a></span></h2>' : '' ); ?>
+								<?php echo ( get_field('show_content_title', $the_ID ) ? '<h2 class="article-title"><span class="pre-title"><a href="' . $news_page_link . '" title="' . $news_page_title . '">' . $news_page_title . '</a></span>' . get_field('content_title', $the_ID ) . '<span class="edit-link">' . edit_post_link('Edit this event', ' | ', '') . (( current_user_can('edit_posts') ) ? ' | <a href="' . add_query_arg(array('post_type'=>'event'),admin_url('post-new.php')) . ' title="Add new event" class="post-add-link">Add new event</a>' : '') . '</span></h2>' : '' ); ?>
 							<?php } else { ?>
-								<h2 class="article-title"><span class="pre-title"><a href="<?php echo $news_page_link; ?>" title="<?php echo $news_page_title; ?>"><?php echo $news_page_title; ?></a></span><?php echo get_the_title(); ?><span class="edit-link"><?php edit_post_link('Edit this event', ' | ', ''); ?><?php echo ' | <a href="' . add_query_arg(array('post_type'=>'event'),admin_url('post-new.php')) . '" title="Add new event" class="post-add-link">Add new event</a>'; ?></span></h2>
+								<h2 class="article-title"><span class="pre-title"><a href="<?php echo $news_page_link; ?>" title="<?php echo $news_page_title; ?>"><?php echo $news_page_title; ?></a></span><?php echo get_the_title(); ?><span class="edit-link"><?php edit_post_link('Edit this event', ' | ', ''); ?><?php echo (( current_user_can('edit_posts') ) ? ' | <a href="' . add_query_arg(array('post_type'=>'event'),admin_url('post-new.php')) . '" title="Add new event" class="post-add-link">Add new event</a>' : ''); ?></span></h2>
 							<?php } ?>
 							<div class="post-data">
 								<span class="post-details">

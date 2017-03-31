@@ -36,7 +36,7 @@
 									$wp_query = new WP_Query();
 									$args = array(
 										'paged' => $paged,
-										'posts_per_page' => 12,
+										'posts_per_page' => 8,
 										'post_type' =>	'press_release',
 										'status'	=>	'publish',
 										'orderby'	=>	'date',
@@ -56,9 +56,11 @@
 										<div class="press_release_content<?php echo((($press_releaseitem % 2) == 0) ? ' press_release_content_last' : ((($press_releaseitem % 2) == 1) ? ' press_release_content_first' : '' ) ); ?>">
 											<div class="press_release_content_image">
 												<div class="press_release_content_image_overlay"></div>
+												<!--
 												<a href="<?php echo get_permalink($id); ?>" title="<?php echo get_the_title(); ?>" rel="bookmark">
 													<div data-src="<?php echo $image_url[0]; ?>" class="press_release_content_icon lazy-image"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/news.png" width="800" height="350" title="<?php echo get_the_title(); ?>" alt="<?php echo get_the_title(); ?>" /></div>
-												</a>											
+												</a>
+												-->											
 											</div>
 											<div class="press_release_content_title">
 												<h4><a href="<?php echo get_permalink($id); ?>" title="<?php echo get_the_title(); ?>" <?php echo (get_field('section_title_color_press_release_and_articles_section', 'option') ? ' style="color:' . get_field('section_title_color_press_release_and_articles_section', 'option') . ';"' : ''); ?>><?php echo get_the_title(); ?></a></h4>
@@ -66,13 +68,13 @@
 													<span class="post-details">
 														<?php the_time('j F Y') ?> / <?php $link = get_permalink(get_the_ID()); echo FacebookShareCount::get_share_count($link); ?> Shares /  by 
 														<?php
-															if( have_rows('authors', $the_ID ) ):
-																while ( have_rows('authors', $the_ID ) ) : the_row();
-																	$author_name = get_sub_field('author_name', $the_ID );
-																	$author_designation = get_sub_field('author_designation', $the_ID );
-																	$author_photo = get_sub_field('author_photo', $the_ID );
-																	$author_link = get_sub_field('author_link', $the_ID );
-																	$author_link_target = get_sub_field('author_link_target', $the_ID );
+															if( have_rows('authors', $id ) ):
+																while ( have_rows('authors', $id ) ) : the_row();
+																	$author_name = get_sub_field('author_name', $id );
+																	$author_designation = get_sub_field('author_designation', $id );
+																	$author_photo = get_sub_field('author_photo', $id );
+																	$author_link = get_sub_field('author_link', $id );
+																	$author_link_target = get_sub_field('author_link_target', $id );
 																	if($author_link){
 																		echo ('<a href="' . $author_link . '" target="' . $author_link_target . '" title="' . $author_name . '">' . $author_name . '</a>');
 																	}else{
@@ -84,11 +86,11 @@
 															endif;
 														?>					
 														<?php
-															if( have_rows('links', $the_ID ) ): echo (' (');
-																while ( have_rows('links', $the_ID ) ) : the_row();
-																	$link_name = get_sub_field('link_name', $the_ID );
-																	$link_url = get_sub_field('link_url', $the_ID );
-																	$link_target = get_sub_field('link_target', $the_ID );
+															if( have_rows('links', $id ) ): echo (' (');
+																while ( have_rows('links', $id ) ) : the_row();
+																	$link_name = get_sub_field('link_name', $id );
+																	$link_url = get_sub_field('link_url', $id );
+																	$link_target = get_sub_field('link_target', $id );
 																	if($link_url){
 																		echo ('<a href="' . $link_url . '" target="' . $link_target . '" title="' . $link_name . '">' . $link_name . '</a>');
 																	}else{

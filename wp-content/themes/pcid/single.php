@@ -33,9 +33,9 @@
 
 						<div class="col-md-8 article">
 							<?php if(get_field('hide_page_title', $the_ID)) { ?>
-								<?php echo ( get_field('show_custom_title', $the_ID ) ? '<h2 class="article-title"><span class="pre-title"><a href="' . $blog_page_link . '" title="' . $blog_page_title . '">' . $blog_page_title . '</a></span>' . get_field('page_title', $the_ID ) . '<span class="edit-link">' . edit_post_link('Edit this article', ' | ', '') . ' | <a href="' . add_query_arg(array('post_type'=>'post'),admin_url('post-new.php')) . ' title="Add new article" class="post-add-link">Add new article</a></span></h2>' : '' ); ?>
+								<?php echo ( get_field('show_custom_title', $the_ID ) ? '<h2 class="article-title"><span class="pre-title"><a href="' . $blog_page_link . '" title="' . $blog_page_title . '">' . $blog_page_title . '</a></span>' . get_field('page_title', $the_ID ) . '<span class="edit-link">' . edit_post_link('Edit this article', ' | ', '') . (( current_user_can('edit_posts') ) ? ' | <a href="' . add_query_arg(array('post_type'=>'post'),admin_url('post-new.php')) . ' title="Add new article" class="post-add-link">Add new article</a>' : '') . '</span></h2>' : '' ); ?>
 							<?php } else { ?>
-								<h2 class="article-title"><span class="pre-title"><a href="<?php echo $blog_page_link; ?>" title="<?php echo $blog_page_title; ?>"><?php echo $blog_page_title; ?></a></span><?php echo get_the_title(); ?><span class="edit-link"><?php edit_post_link('Edit this article', ' | ', ''); ?><?php echo ' | <a href="' . add_query_arg(array('post_type'=>'post'),admin_url('post-new.php')) . '" title="Add new article" class="post-add-link">Add new article</a>'; ?></span></h2>
+								<h2 class="article-title"><span class="pre-title"><a href="<?php echo $blog_page_link; ?>" title="<?php echo $blog_page_title; ?>"><?php echo $blog_page_title; ?></a></span><?php echo get_the_title(); ?><span class="edit-link"><?php edit_post_link('Edit this article', ' | ', ''); ?><?php echo (( current_user_can('edit_posts') ) ? ' | <a href="' . add_query_arg(array('post_type'=>'post'),admin_url('post-new.php')) . '" title="Add new article" class="post-add-link">Add new article</a>' : ''); ?></span></h2>
 							<?php } ?>
 							<div class="post-data">
 								<span class="post-details">

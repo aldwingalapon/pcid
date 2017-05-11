@@ -19,9 +19,9 @@
 					<div class="row">
 						<div class="col-md-8 article">
 							<?php if(get_field('hide_page_title', $the_ID)) { ?>
-								<?php echo ( get_field('show_custom_title', $the_ID ) ? '<h2 class="article-title">' . get_field('page_title', $the_ID ) . '<span class="edit-link">' . '<a href="' . get_edit_post_link($the_ID) . '" title="Edit this page" class="post-edit-link">Edit this page</a>' . ' | <a href="' . add_query_arg(array('post_type'=>'page'),admin_url('post-new.php')) . '" title="Add new page" class="post-add-link">Add new page</a></span></h2>' : '' ); ?>
+								<?php echo ( get_field('show_custom_title', $the_ID ) ? '<h2 class="article-title">' . get_field('page_title', $the_ID ) . '<span class="edit-link">' . '<a href="' . get_edit_post_link($the_ID) . '" title="Edit this page" class="post-edit-link">Edit this page</a>' . (( current_user_can('edit_posts') ) ? ' | <a href="' . add_query_arg(array('post_type'=>'page'),admin_url('post-new.php')) . '" title="Add new page" class="post-add-link">Add new page</a>' : '') . '</span></h2>' : '' ); ?>
 							<?php } else { ?>
-								<h2 class="article-title"><?php echo get_the_title(); ?><span class="edit-link"><?php edit_post_link('Edit this page', ' | ', ''); ?><?php echo ' | <a href="' . add_query_arg(array('post_type'=>'page'),admin_url('post-new.php')) . '" title="Add new page" class="post-add-link">Add new page</a>'; ?></span></h2>
+								<h2 class="article-title"><?php echo get_the_title(); ?><span class="edit-link"><?php edit_post_link('Edit this page', ' | ', ''); ?><?php echo (( current_user_can('edit_posts') ) ? ' | <a href="' . add_query_arg(array('post_type'=>'page'),admin_url('post-new.php')) . '" title="Add new page" class="post-add-link">Add new page</a>' : ''); ?></span></h2>
 							<?php } ?>
 
 							<?php the_content(); ?>
